@@ -5,6 +5,10 @@
  */
 package com.mycompany.progetto;
 
+import java.awt.Dimension;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Utente
@@ -12,14 +16,20 @@ package com.mycompany.progetto;
 public class Room1 extends javax.swing.JFrame {
 
     /**
-     * Creates new form Room1
+     * Creates new form Room2
      */
-    Room room,room2;
     public Room1() {
         initComponents();
-         room = new Room(1,this,"C:\\Users\\Utente\\Downloads\\imgproject\\CAVE22.jpg","Caverna",backscreen);
-         room2 = new Room(2,new Room2(),"Boh");
-         room.setNorth(room2);
+        Room room2 = new Room(2,this,"Boh");
+        Dimension window = new Dimension(1080,720);
+        this.setSize(window);
+        this.setResizable(false);
+        ImageIcon icon = new ImageIcon("C:\\Users\\Utente\\Downloads\\imgproject\\cave_.jpg");
+        Image img =icon.getImage();
+        Image imgScale = img.getScaledInstance(window.width,window.height,Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon =new ImageIcon(imgScale);
+        background.setIcon(scaledIcon);
+        this.pack();
     }
 
     /**
@@ -31,32 +41,33 @@ public class Room1 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        backscreen = new javax.swing.JLabel();
+        background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(1080, 720));
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, -1, -1));
+        background.setIcon(new javax.swing.ImageIcon("C:\\Users\\Utente\\Downloads\\imgproject\\cave_.jpg")); // NOI18N
+        background.setMaximumSize(new java.awt.Dimension(1080, 720));
+        background.setMinimumSize(new java.awt.Dimension(1080, 720));
+        background.setPreferredSize(new java.awt.Dimension(1080, 720));
 
-        backscreen.setIcon(new javax.swing.ImageIcon("C:\\Users\\Utente\\Downloads\\imgproject\\CAVE22.jpg")); // NOI18N
-        getContentPane().add(backscreen, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        room.getNorth().getThisRoom().setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -84,6 +95,7 @@ public class Room1 extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Room1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -94,7 +106,6 @@ public class Room1 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel backscreen;
-    private javax.swing.JButton jButton1;
+    public javax.swing.JLabel background;
     // End of variables declaration//GEN-END:variables
 }

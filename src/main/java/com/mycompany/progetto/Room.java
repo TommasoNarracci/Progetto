@@ -8,12 +8,13 @@ package com.mycompany.progetto;
 import java.awt.Dimension;
 import java.awt.Image;
 import javax.swing.*;
-
 /**
  *
  * @author Utente
  */
-public class Room {
+public class Room  {
+
+    private static Game thisGame;
     private final int id;
     private JFrame thisRoom;
     private String background;
@@ -23,16 +24,18 @@ public class Room {
     private Room south;
     private Room east;
     private Room west;
-
+    
     public Room(int id, JFrame thisRoom) {
         this.id = id;
         this.thisRoom = thisRoom;
+
     }
 
     public Room(int id, JFrame thisRoom, String name) {
         this.id = id;
         this.thisRoom = thisRoom;
         this.name = name;
+
     }
 
     public Room(int id, JFrame thisRoom, String background, String name, JLabel label) {
@@ -41,13 +44,26 @@ public class Room {
         this.background = background;
         this.name = name;
         this.label = label;
-        setWindow(background,label);
+
+        setWindow(background, label);
+        
     }
 
+    public static Game getThisGame() {
+        return thisGame;
+    }
+
+    public static void setThisGame(Game thisGame) {
+        Room.thisGame = thisGame;
+    }
+    
+    public int getId() {
+        return id;
+    }
+    
     public JFrame getThisRoom() {
         return thisRoom;
     }
-
 
     public String getName() {
         return name;
@@ -96,16 +112,26 @@ public class Room {
     public void setWest(Room west) {
         this.west = west;
     }
-    public final void setWindow(String backg,JLabel label){
-        Dimension window = new Dimension(1080,720);
+
+    public final void setWindow(String backg, JLabel label) {
+        Dimension window = new Dimension(1080, 720);
         thisRoom.setSize(window);
         thisRoom.setResizable(false);
         ImageIcon icon = new ImageIcon(backg);
-        Image img =icon.getImage();
-        Image imgScale = img.getScaledInstance(window.width,window.height,Image.SCALE_SMOOTH);
-        ImageIcon scaledIcon =new ImageIcon(imgScale);
+        Image img = icon.getImage();
+        Image imgScale = img.getScaledInstance(window.width, window.height, Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon = new ImageIcon(imgScale);
         label.setIcon(scaledIcon);
         thisRoom.pack();
     }
-    
+
+    public Room equals(int id) {
+        if (this.id == id) {
+            return this;
+        } else {
+            return null;
+        }
+    }
 }
+
+
