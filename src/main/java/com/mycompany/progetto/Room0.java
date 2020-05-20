@@ -5,8 +5,9 @@
  */
 package com.mycompany.progetto;
 
-import static com.mycompany.progetto.Room.getThisGame;
-
+import static com.mycompany.progetto.ProjectGameDescription.getInventory;
+import static com.mycompany.progetto.ProjectGameDescription.getRooms;
+import static com.mycompany.progetto.Inventory.getInventoryform;
 
 
 /**
@@ -36,9 +37,13 @@ public class Room0 extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         backscreen = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("GIOCOMAP");
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setName("GIOCOMAP"); // NOI18N
         setSize(new java.awt.Dimension(1080, 720));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -49,6 +54,14 @@ public class Room0 extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, -1, -1));
+
+        jButton2.setText("jButton2");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 550, -1, -1));
 
         backscreen.setIcon(new javax.swing.ImageIcon("C:\\Users\\Utente\\Downloads\\imgproject\\CAVE22.jpg")); // NOI18N
         backscreen.setMaximumSize(new java.awt.Dimension(1080, 720));
@@ -61,9 +74,15 @@ public class Room0 extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        getThisGame().getmyRoom(0).getNorth().getThisRoom().setVisible(true);
+        getRooms().get(0).getNorth().getThisRoom().setVisible(true);
+        //getThisGame().getmyRoom(0).getNorth().getThisRoom().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        getInventoryform().setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -104,5 +123,6 @@ public class Room0 extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JLabel backscreen;
     public javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     // End of variables declaration//GEN-END:variables
 }

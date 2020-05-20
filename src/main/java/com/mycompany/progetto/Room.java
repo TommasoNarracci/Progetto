@@ -14,7 +14,6 @@ import javax.swing.*;
  */
 public class Room  {
 
-    private static Game thisGame;
     private final int id;
     private JFrame thisRoom;
     private String background;
@@ -47,14 +46,6 @@ public class Room  {
 
         setWindow(background, label);
         
-    }
-
-    public static Game getThisGame() {
-        return thisGame;
-    }
-
-    public static void setThisGame(Game thisGame) {
-        Room.thisGame = thisGame;
     }
     
     public int getId() {
@@ -125,12 +116,8 @@ public class Room  {
         thisRoom.pack();
     }
 
-    public Room equals(int id) {
-        if (this.id == id) {
-            return this;
-        } else {
-            return null;
-        }
+    public boolean equals(JFrame thisRoom){
+        return this.thisRoom == thisRoom;
     }
 }
 
