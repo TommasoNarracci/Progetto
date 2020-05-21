@@ -20,16 +20,7 @@ public class Room1 extends javax.swing.JFrame {
      */
     public Room1() {
         initComponents();
-        Room room2 = new Room(2,this,"Boh");
-        Dimension window = new Dimension(1080,720);
-        this.setSize(window);
-        this.setResizable(false);
-        ImageIcon icon = new ImageIcon("C:\\Users\\Utente\\Downloads\\imgproject\\cave_.jpg");
-        Image img =icon.getImage();
-        Image imgScale = img.getScaledInstance(window.width,window.height,Image.SCALE_SMOOTH);
-        ImageIcon scaledIcon =new ImageIcon(imgScale);
-        background.setIcon(scaledIcon);
-        this.pack();
+        
     }
 
     /**
