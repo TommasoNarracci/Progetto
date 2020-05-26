@@ -7,8 +7,8 @@ package com.mycompany.progetto;
 
 import static com.mycompany.progetto.ProjectGameDescription.getInventory;
 import static com.mycompany.progetto.ProjectGameDescription.getRooms;
-import static com.mycompany.progetto.Inventory.getInventoryform;
-
+import java.awt.Image;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -21,10 +21,14 @@ public class Room0 extends javax.swing.JFrame {
      */
     public Room0() {
         initComponents();
-        
-         //room = new Room(1,this,"C:\\Users\\Utente\\Downloads\\imgproject\\CAVE22.jpg","Caverna",backscreen);
-         //room2 = new Room(2,new Room2(),"Boh");
-         //room.setNorth(room2);
+        /*ImageIcon image = new ImageIcon("C:\\Users\\Utente\\Downloads\\imgproject\\bow.jpg");
+        Image img = image.getImage();
+        Image newimg = img.getScaledInstance(50, 50, java.awt.Image.SCALE_SMOOTH);
+        image = new ImageIcon(newimg);
+        Object.setIcon(image);*/
+        //room = new Room(1,this,"C:\\Users\\Utente\\Downloads\\imgproject\\CAVE22.jpg","Caverna",backscreen);
+        //room2 = new Room(2,new Room2(),"Boh");
+        //room.setNorth(room2);
     }
 
     /**
@@ -38,6 +42,7 @@ public class Room0 extends javax.swing.JFrame {
 
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        Object = new javax.swing.JButton();
         backscreen = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -63,6 +68,14 @@ public class Room0 extends javax.swing.JFrame {
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 550, -1, -1));
 
+        Object.setText("Object");
+        Object.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ObjectActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Object, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 150, 50));
+
         backscreen.setIcon(new javax.swing.ImageIcon("C:\\Users\\Utente\\Downloads\\imgproject\\CAVE22.jpg")); // NOI18N
         backscreen.setMaximumSize(new java.awt.Dimension(1080, 720));
         backscreen.setMinimumSize(new java.awt.Dimension(1080, 720));
@@ -81,8 +94,16 @@ public class Room0 extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        getInventoryform().setVisible(true);
+        getInventory().refreshInventory();
+        getInventory().getInventoryform().setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void ObjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ObjectActionPerformed
+        // TODO add your handling code here:
+        ProjectObject o = new ProjectObject();
+        getInventory().add(o);
+        System.out.println(getInventory().Size());
+    }//GEN-LAST:event_ObjectActionPerformed
 
     /**
      * @param args the command line arguments
@@ -121,6 +142,7 @@ public class Room0 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton Object;
     public javax.swing.JLabel backscreen;
     public javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

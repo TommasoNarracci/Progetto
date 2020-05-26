@@ -7,12 +7,14 @@ package com.mycompany.progetto;
 
 import java.awt.Dimension;
 import java.awt.Image;
+import java.awt.Toolkit;
 import javax.swing.*;
+
 /**
  *
  * @author Utente
  */
-public class Room  {
+public class Room {
 
     private final int id;
     private JFrame thisRoom;
@@ -23,7 +25,7 @@ public class Room  {
     private Room south;
     private Room east;
     private Room west;
-    
+
     public Room(int id, JFrame thisRoom) {
         this.id = id;
         this.thisRoom = thisRoom;
@@ -45,13 +47,13 @@ public class Room  {
         this.label = label;
 
         setWindow(background, label);
-        
+
     }
-    
+
     public int getId() {
         return id;
     }
-    
+
     public JFrame getThisRoom() {
         return thisRoom;
     }
@@ -114,11 +116,10 @@ public class Room  {
         ImageIcon scaledIcon = new ImageIcon(imgScale);
         label.setIcon(scaledIcon);
         thisRoom.pack();
+        thisRoom.setLocationRelativeTo(null);
     }
 
-    public boolean equals(JFrame thisRoom){
+    public boolean equals(JFrame thisRoom) {
         return this.thisRoom == thisRoom;
     }
 }
-
-
