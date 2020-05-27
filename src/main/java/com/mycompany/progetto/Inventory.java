@@ -5,13 +5,13 @@
  */
 package com.mycompany.progetto;
 
-import static com.mycompany.progetto.ProjectGameDescription.getInventory;
+import java.awt.Image;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 
 /**
  * <>
@@ -29,7 +29,7 @@ public class Inventory {
     private List<ProjectObject> inventory = new ArrayList<>();
     private JFrame inventoryform;
     private JLabel background;
-
+    //private ProjectObject objectToInsert;
     public Inventory() {
     }
 
@@ -89,9 +89,23 @@ public class Inventory {
     }
 
     public void SetButton(int column, int row) {
-        JButton jb = new JButton("Object");
+        JButton jb = new JButton();
+        ProjectObject obj = new ProjectObject();
+        obj = getInventory().get(column + (8*row));
         jb.setBounds(20 + 48 * column, 20 + 47 * row, 30, 30); //Inserimento nella casella corretta dell'inventario
+        SetImageButton(obj,jb);
+        jb.setToolTipText(obj.getObjectName());
         getInventoryform().add(jb, column);
         jb.setVisible(true);
+    }
+    public void SetImageButton(ProjectObject o,JButton jb){
+        ImageIcon image = new ImageIcon(o.getImagePath());
+        Image img = image.getImage();
+        Image newimg = img.getScaledInstance(30,30, java.awt.Image.SCALE_SMOOTH);
+        image = new ImageIcon(newimg);
+        jb.setIcon(image);
+        jb.setBorderPainted(false);
+        jb.setContentAreaFilled(false);
+        jb.setFocusPainted(false);
     }
 }

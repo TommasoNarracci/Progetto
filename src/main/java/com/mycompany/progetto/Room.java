@@ -107,7 +107,7 @@ public class Room {
     }
 
     public final void setWindow(String backg, JLabel label) {
-        Dimension window = new Dimension(1080, 720);
+        Dimension window = new Dimension(1080,720);
         thisRoom.setSize(window);
         thisRoom.setResizable(false);
         ImageIcon icon = new ImageIcon(backg);
@@ -117,6 +117,7 @@ public class Room {
         label.setIcon(scaledIcon);
         thisRoom.pack();
         thisRoom.setLocationRelativeTo(null);
+        
     }
 
     public boolean equals(JFrame thisRoom) {

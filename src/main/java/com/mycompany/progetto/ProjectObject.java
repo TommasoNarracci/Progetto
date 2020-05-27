@@ -6,7 +6,6 @@
 package com.mycompany.progetto;
 
 import java.awt.Image;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
@@ -47,6 +46,10 @@ public class ProjectObject {
         this.objectName = objectName;
     }
 
+    public String getObjectName() {
+        return objectName;
+    }
+
     public String getImagePath() {
         return imagePath;
     }
@@ -65,7 +68,11 @@ public class ProjectObject {
         Image img = image.getImage();
         Image newimg = img.getScaledInstance(50,50, java.awt.Image.SCALE_SMOOTH);
         image = new ImageIcon(newimg);
+        this.object.setToolTipText(objectName);
         this.object.setIcon(image);
+        this.object.setBorderPainted(false);
+        this.object.setContentAreaFilled(false);
+        this.object.setFocusPainted(false);
     }
 
 }

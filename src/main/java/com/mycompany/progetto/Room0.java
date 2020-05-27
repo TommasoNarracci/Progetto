@@ -9,6 +9,7 @@ import static com.mycompany.progetto.ProjectGameDescription.getInventory;
 import static com.mycompany.progetto.ProjectGameDescription.getRooms;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 
 /**
  *
@@ -19,13 +20,12 @@ public class Room0 extends javax.swing.JFrame {
     /**
      * Creates new form Room1
      */
+    private static ProjectObject bow;
     public Room0() {
         initComponents();
-        /*ImageIcon image = new ImageIcon("C:\\Users\\Utente\\Downloads\\imgproject\\bow.jpg");
-        Image img = image.getImage();
-        Image newimg = img.getScaledInstance(50, 50, java.awt.Image.SCALE_SMOOTH);
-        image = new ImageIcon(newimg);
-        Object.setIcon(image);*/
+        
+        bow = new ProjectObject(0,"arco","C:\\Users\\Utente\\Downloads\\imgproject\\bow.jpg",Object);
+        
         //room = new Room(1,this,"C:\\Users\\Utente\\Downloads\\imgproject\\CAVE22.jpg","Caverna",backscreen);
         //room2 = new Room(2,new Room2(),"Boh");
         //room.setNorth(room2);
@@ -43,6 +43,7 @@ public class Room0 extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         Object = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         backscreen = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -68,13 +69,29 @@ public class Room0 extends javax.swing.JFrame {
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 550, -1, -1));
 
+        Object.setIcon(new javax.swing.ImageIcon("C:\\Users\\Utente\\Downloads\\imgproject\\bow.jpg")); // NOI18N
         Object.setText("Object");
+        Object.setBorder(null);
+        Object.setBorderPainted(false);
+        Object.setContentAreaFilled(false);
+        Object.setFocusPainted(false);
+        Object.setMaximumSize(new java.awt.Dimension(30, 30));
+        Object.setMinimumSize(new java.awt.Dimension(30, 30));
+        Object.setPreferredSize(new java.awt.Dimension(30, 30));
         Object.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ObjectActionPerformed(evt);
             }
         });
-        getContentPane().add(Object, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 150, 50));
+        getContentPane().add(Object, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 30, 30));
+
+        jButton3.setText("jButton3");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 500, -1, -1));
 
         backscreen.setIcon(new javax.swing.ImageIcon("C:\\Users\\Utente\\Downloads\\imgproject\\CAVE22.jpg")); // NOI18N
         backscreen.setMaximumSize(new java.awt.Dimension(1080, 720));
@@ -100,10 +117,16 @@ public class Room0 extends javax.swing.JFrame {
 
     private void ObjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ObjectActionPerformed
         // TODO add your handling code here:
-        ProjectObject o = new ProjectObject();
-        getInventory().add(o);
+        
+        getInventory().add(bow);
         System.out.println(getInventory().Size());
+        //Object.setVisible(false);
     }//GEN-LAST:event_ObjectActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        getRooms().get(0).getSouth().getThisRoom().setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -146,5 +169,6 @@ public class Room0 extends javax.swing.JFrame {
     public javax.swing.JLabel backscreen;
     public javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     // End of variables declaration//GEN-END:variables
 }
