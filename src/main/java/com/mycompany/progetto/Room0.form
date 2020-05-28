@@ -65,9 +65,8 @@
     <Component class="javax.swing.JButton" name="Object">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Utente\Downloads\imgproject\bow.jpg"/>
+          <Image iconType="3" name="/images/bow.jpg"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Object"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>

@@ -99,7 +99,8 @@ public class Inventory {
         jb.setVisible(true);
     }
     public void SetImageButton(ProjectObject o,JButton jb){
-        ImageIcon image = new ImageIcon(o.getImagePath());
+        ImageIcon image = new ImageIcon();
+        image = (ImageIcon) o.getObject().getIcon();
         Image img = image.getImage();
         Image newimg = img.getScaledInstance(30,30, java.awt.Image.SCALE_SMOOTH);
         image = new ImageIcon(newimg);

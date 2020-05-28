@@ -24,7 +24,7 @@ public class Room0 extends javax.swing.JFrame {
     public Room0() {
         initComponents();
         
-        bow = new ProjectObject(0,"arco","C:\\Users\\Utente\\Downloads\\imgproject\\bow.jpg",Object);
+        bow = new ProjectObject(0,"arco","/images/bow.jpg",Object);
         
         //room = new Room(1,this,"C:\\Users\\Utente\\Downloads\\imgproject\\CAVE22.jpg","Caverna",backscreen);
         //room2 = new Room(2,new Room2(),"Boh");
@@ -69,8 +69,7 @@ public class Room0 extends javax.swing.JFrame {
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 550, -1, -1));
 
-        Object.setIcon(new javax.swing.ImageIcon("C:\\Users\\Utente\\Downloads\\imgproject\\bow.jpg")); // NOI18N
-        Object.setText("Object");
+        Object.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bow.jpg"))); // NOI18N
         Object.setBorder(null);
         Object.setBorderPainted(false);
         Object.setContentAreaFilled(false);

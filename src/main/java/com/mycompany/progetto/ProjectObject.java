@@ -24,7 +24,6 @@ public class ProjectObject {
     public ProjectObject() {
     }
 
-    
     public ProjectObject(int id, String objectName) {
         this.id = id;
         this.objectName = objectName;
@@ -62,17 +61,28 @@ public class ProjectObject {
         this.object = object;
     }
 
+    public JButton getObject() {
+        return object;
+    }
+
     public void SetObjectImage() {
-        this.object.setSize(30,30);
-        ImageIcon image = new ImageIcon(this.imagePath);
+        this.object.setSize(30, 30);
+        /*ImageIcon image = new ImageIcon(this.imagePath);
         Image img = image.getImage();
-        Image newimg = img.getScaledInstance(50,50, java.awt.Image.SCALE_SMOOTH);
+        Image newimg = img.getScaledInstance(30,30, java.awt.Image.SCALE_SMOOTH);
         image = new ImageIcon(newimg);
+        this.object.setIcon(image);*/
+        ImageIcon icon = new ImageIcon();
+        icon = (ImageIcon) object.getIcon();
+        Image img = icon.getImage();
+        Image imgScale = img.getScaledInstance(object.getWidth(), object.getHeight(), Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon = new ImageIcon(imgScale);
+        object.setIcon(scaledIcon);
         this.object.setToolTipText(objectName);
-        this.object.setIcon(image);
+
         this.object.setBorderPainted(false);
         this.object.setContentAreaFilled(false);
-        this.object.setFocusPainted(false);
+        this.object.setFocusPainted(false); 
     }
 
 }
