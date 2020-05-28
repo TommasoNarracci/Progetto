@@ -93,7 +93,7 @@ public class Room0 extends javax.swing.JFrame {
         });
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 500, -1, -1));
 
-        backscreen.setIcon(new javax.swing.ImageIcon("C:\\Users\\Utente\\Downloads\\imgproject\\CAVE22.jpg")); // NOI18N
+        backscreen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/CAVE22.jpg"))); // NOI18N
         backscreen.setMaximumSize(new java.awt.Dimension(1080, 720));
         backscreen.setMinimumSize(new java.awt.Dimension(1080, 720));
         backscreen.setPreferredSize(new java.awt.Dimension(1080, 720));

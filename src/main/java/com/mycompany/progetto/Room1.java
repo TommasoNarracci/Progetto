@@ -37,7 +37,7 @@ public class Room1 extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(1080, 720));
 
-        background.setIcon(new javax.swing.ImageIcon("C:\\Users\\Utente\\Documents\\NetBeansProjects\\Progetto\\src\\main\\java\\images\\cave_.jpg")); // NOI18N
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cave_.jpg"))); // NOI18N
         background.setMaximumSize(new java.awt.Dimension(1080, 720));
         background.setMinimumSize(new java.awt.Dimension(1080, 720));
         background.setPreferredSize(new java.awt.Dimension(1080, 720));
