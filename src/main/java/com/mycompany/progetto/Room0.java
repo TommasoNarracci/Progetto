@@ -5,6 +5,7 @@
  */
 package com.mycompany.progetto;
 
+import static com.mycompany.progetto.Commands.*;
 import static com.mycompany.progetto.ProjectGameDescription.getInventory;
 import static com.mycompany.progetto.ProjectGameDescription.getRooms;
 import java.awt.Image;
@@ -24,7 +25,7 @@ public class Room0 extends javax.swing.JFrame {
     public Room0() {
         initComponents();
         
-        bow = new ProjectObject(0,"arco","/images/bow.jpg",Object);
+        bow = new ProjectObject(0,"arco","/images/bow.jpg",Object,this);
         
         //room = new Room(1,this,"C:\\Users\\Utente\\Downloads\\imgproject\\CAVE22.jpg","Caverna",backscreen);
         //room2 = new Room(2,new Room2(),"Boh");
@@ -70,8 +71,7 @@ public class Room0 extends javax.swing.JFrame {
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 550, -1, -1));
 
         Object.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bow.jpg"))); // NOI18N
-        Object.setBorder(null);
-        Object.setBorderPainted(false);
+        Object.setBorder(new javax.swing.border.MatteBorder(null));
         Object.setContentAreaFilled(false);
         Object.setFocusPainted(false);
         Object.setMaximumSize(new java.awt.Dimension(30, 30));
@@ -103,28 +103,32 @@ public class Room0 extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        getRooms().get(0).getNorth().getThisRoom().setVisible(true);
+        //getRooms().get(0).getNorth().getThisRoom().setVisible(true);
         //getThisGame().getmyRoom(0).getNorth().getThisRoom().setVisible(true);
-        this.dispose();
+        //this.dispose();
+        goNorth(this);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        getInventory().refreshInventory();
-        getInventory().getInventoryform().setVisible(true);
+       /* getInventory().refreshInventory();
+        getInventory().getInventoryform().setVisible(true);*/
+       openInventory();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void ObjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ObjectActionPerformed
         // TODO add your handling code here:
-        
-        getInventory().add(bow);
-        System.out.println(getInventory().Size());
+        PickObject(bow);
+        //getInventory().add(bow);
+        //System.out.println(getInventory().Size());
         //Object.setVisible(false);
     }//GEN-LAST:event_ObjectActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        getRooms().get(0).getSouth().getThisRoom().setVisible(true);
+        //getRooms().get(0).getSouth().getThisRoom().setVisible(true);
+        goSouth(this);
+        
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**

@@ -8,6 +8,7 @@ package com.mycompany.progetto;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 
 /**
  *
@@ -20,6 +21,7 @@ public class ProjectObject {
     private String objectName;
     private String imagePath;
     private JButton object;
+    private JFrame thisRoom;
 
     public ProjectObject() {
     }
@@ -29,11 +31,12 @@ public class ProjectObject {
         this.objectName = objectName;
     }
 
-    public ProjectObject(int id, String objectName, String imagePath, JButton object) {
+    public ProjectObject(int id, String objectName, String imagePath, JButton object,JFrame thisRoom) {
         this.id = id;
         this.objectName = objectName;
         this.imagePath = imagePath;
         this.object = object;
+        this.thisRoom = thisRoom;
         SetObjectImage();
     }
 
@@ -65,8 +68,12 @@ public class ProjectObject {
         return object;
     }
 
+    public JFrame getThisRoom() {
+        return thisRoom;
+    }
+
     public void SetObjectImage() {
-        this.object.setSize(30, 30);
+        //this.object.setSize(30, 30);
         /*ImageIcon image = new ImageIcon(this.imagePath);
         Image img = image.getImage();
         Image newimg = img.getScaledInstance(30,30, java.awt.Image.SCALE_SMOOTH);
@@ -80,7 +87,7 @@ public class ProjectObject {
         object.setIcon(scaledIcon);
         this.object.setToolTipText(objectName);
 
-        this.object.setBorderPainted(false);
+        //this.object.setBorderPainted(false);
         this.object.setContentAreaFilled(false);
         this.object.setFocusPainted(false); 
     }

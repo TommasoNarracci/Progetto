@@ -26,6 +26,10 @@ public class Room {
     private Room east;
     private Room west;
 
+    public Room() {
+        this.id = -1;
+    }
+
     public Room(int id, JFrame thisRoom) {
         this.id = id;
         this.thisRoom = thisRoom;
@@ -49,6 +53,7 @@ public class Room {
         setWindow(background, label);
 
     }
+
 
     public int getId() {
         return id;
