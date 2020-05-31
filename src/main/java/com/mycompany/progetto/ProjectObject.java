@@ -6,6 +6,8 @@
 package com.mycompany.progetto;
 
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -14,7 +16,7 @@ import javax.swing.JFrame;
  *
  * @author Utente
  */
-public class ProjectObject {
+public class ProjectObject extends JButton{
 
     //Classe oggetti
     private int id;
@@ -22,7 +24,6 @@ public class ProjectObject {
     private String imagePath;
     private JButton object;
     private JFrame thisRoom;
-
     public ProjectObject() {
     }
 
@@ -37,6 +38,7 @@ public class ProjectObject {
         this.imagePath = imagePath;
         this.object = object;
         this.thisRoom = thisRoom;
+        object.addActionListener(actionListener);
         SetObjectImage();
     }
 
@@ -91,5 +93,11 @@ public class ProjectObject {
         this.object.setContentAreaFilled(false);
         this.object.setFocusPainted(false); 
     }
-
+    public ActionListener actionListener = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent arg0) {
+            object.setVisible(false);
+        }
+    };
+    
 }

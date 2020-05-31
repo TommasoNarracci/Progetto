@@ -27,6 +27,7 @@ public class Game {
         room2 = new Room(2, new Room2(), "/images/lotr.jpg", "Caverna", new Room2().jLabel1);
         room0.setNorth(room1);
         room0.setSouth(room2);
+        room1.setSouth(room0);
         //bow = new ProjectObject(0,"arco","C:\\Users\\Utente\\Downloads\\imgproject\\bow.jpg",new Room0().Object);
         room0.getThisRoom().setVisible(true);
         

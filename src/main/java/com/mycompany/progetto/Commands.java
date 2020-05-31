@@ -6,7 +6,10 @@
 package com.mycompany.progetto;
 
 import static com.mycompany.progetto.ProjectGameDescription.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.List;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 
 /**
@@ -16,7 +19,7 @@ import javax.swing.JFrame;
 public class Commands {
 
     private static Room currentRoom = new Room();
-
+    private static ProjectObject object = new ProjectObject();
     //Implementare comandi usati tipo Nord,Sud,Raccogli,Usa ecc.
     public static void goNorth(JFrame currentFrame) {
 
@@ -63,6 +66,6 @@ public class Commands {
         getInventory().getInventoryform().setVisible(true);
     }
     public static void PickObject(ProjectObject obj){
-        getInventory().add(obj);
+        getInventory().add(obj);     
     }
 }
