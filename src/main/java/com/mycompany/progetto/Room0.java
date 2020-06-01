@@ -40,7 +40,7 @@ public class Room0 extends javax.swing.JFrame {
     public Room0() {
         initComponents();
         currentroom = findCurrentRoom(this);
-        bow = new ProjectObject(0, "arco", "/images/bow.jpg", Object, this,1);
+        bow = new ProjectObject(0, "arco", "/images/bow.jpg", Object, this);
         north = new ProjectObject(1, "nord", "/images/inventory.png", jButton1, this, 1);
         north.setEnable(0);
         /*jButton2.addActionListener(l);*/
