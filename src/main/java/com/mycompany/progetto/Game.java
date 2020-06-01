@@ -7,6 +7,7 @@ package com.mycompany.progetto;
 
 import static com.mycompany.progetto.ProjectGameDescription.*;
 import static com.mycompany.progetto.Commands.*;
+import static com.mycompany.progetto.Inventory.*;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -36,7 +37,6 @@ public class Game {
         room1.setSouth(room0);
         //bow = new ProjectObject(0,"arco","C:\\Users\\Utente\\Downloads\\imgproject\\bow.jpg",new Room0().Object);
         room0.getThisRoom().setVisible(true);
-        
     }
 
 }

@@ -26,7 +26,6 @@ public class ProjectObject extends JButton {
     private JFrame thisRoom;
     private int enable = 1;    //0 = NO ; 1 = SI
     private int reusable = 0;
-
     public ProjectObject() {
     }
 
@@ -68,6 +67,7 @@ public class ProjectObject extends JButton {
     public int getId() {
         return id;
     }
+
 
     public int isEnable() {
         return enable;

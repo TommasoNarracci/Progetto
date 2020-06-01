@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package com.mycompany.progetto;
-
+import static com.mycompany.progetto.Inventory.*;
 import static com.mycompany.progetto.ProjectGameDescription.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -73,22 +73,9 @@ public class Commands {
         getInventory().add(obj);
     }
 
-    public static int findObject(ProjectObject obj) {
-        List<ProjectObject> inventory = getInventory().getInventoryList();
-        for (int i = 0; i < inventory.size(); i++) {
-            if (inventory.get(i).equals(obj)) {
-                return i;
-            }
-        }
-        return -1;
+    public static void removeObject(ProjectObject obj){
+        getInventory().remove(obj);
     }
+    }
+        
 
-    public static void removeObject(ProjectObject obj) {
-            int index = findObject(obj);
-            if (index > 0){
-                getInventory().getInventoryList().remove(index);
-            }else{
-                System.out.println("Oggetto non presente.Operazione annullata");
-            }
-    }
-}

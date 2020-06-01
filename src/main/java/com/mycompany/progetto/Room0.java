@@ -6,6 +6,7 @@
 package com.mycompany.progetto;
 
 import static com.mycompany.progetto.Commands.*;
+import static com.mycompany.progetto.Inventory.*;
 import static com.mycompany.progetto.ProjectGameDescription.getInventory;
 import static com.mycompany.progetto.ProjectGameDescription.getRooms;
 import java.awt.Color;
@@ -39,7 +40,7 @@ public class Room0 extends javax.swing.JFrame {
     public Room0() {
         initComponents();
         currentroom = findCurrentRoom(this);
-        bow = new ProjectObject(0, "arco", "/images/bow.jpg", Object, this);
+        bow = new ProjectObject(0, "arco", "/images/bow.jpg", Object, this,1);
         north = new ProjectObject(1, "nord", "/images/inventory.png", jButton1, this, 1);
         north.setEnable(0);
         /*jButton2.addActionListener(l);*/
@@ -53,13 +54,13 @@ public class Room0 extends javax.swing.JFrame {
     public ActionListener l = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent arg0) {
-
-            if (findObject(bow) >= 0) {
-                north.setEnable(1);
-                removeObject(bow);
-                System.out.println(getInventory().getInventoryList());
+            if (north.isEnable() == 0) {
+                if (findObject(bow) >= 0) {
+                    north.setEnable(1);
+                    removeObject(bow);
+                    System.out.println(getInventory().getInventoryList());
+                }
             }
-
         }
     };
 
@@ -158,7 +159,7 @@ public class Room0 extends javax.swing.JFrame {
             try {
                 TimeUnit.SECONDS.sleep(2);
             } catch (InterruptedException ex) {
-                
+
             }
             goNorth(this);
         } else {
