@@ -8,6 +8,7 @@ package com.mycompany.progetto;
 import static com.mycompany.progetto.ProjectGameDescription.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -20,6 +21,7 @@ public class Commands {
 
     private static Room currentRoom = new Room();
     private static ProjectObject object = new ProjectObject();
+
     //Implementare comandi usati tipo Nord,Sud,Raccogli,Usa ecc.
     public static void goNorth(JFrame currentFrame) {
 
@@ -61,11 +63,32 @@ public class Commands {
         }
         return thisRoom;
     }
-    public static void openInventory(){
+
+    public static void openInventory() {
         getInventory().refreshInventory();
         getInventory().getInventoryform().setVisible(true);
     }
-    public static void PickObject(ProjectObject obj){
-        getInventory().add(obj);     
+
+    public static void PickObject(ProjectObject obj) {
+        getInventory().add(obj);
+    }
+
+    public static int findObject(ProjectObject obj) {
+        List<ProjectObject> inventory = getInventory().getInventoryList();
+        for (int i = 0; i < inventory.size(); i++) {
+            if (inventory.get(i).equals(obj)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public static void removeObject(ProjectObject obj) {
+            int index = findObject(obj);
+            if (index > 0){
+                getInventory().getInventoryList().remove(index);
+            }else{
+                System.out.println("Oggetto non presente.Operazione annullata");
+            }
     }
 }

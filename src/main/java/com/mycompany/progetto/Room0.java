@@ -8,7 +8,19 @@ package com.mycompany.progetto;
 import static com.mycompany.progetto.Commands.*;
 import static com.mycompany.progetto.ProjectGameDescription.getInventory;
 import static com.mycompany.progetto.ProjectGameDescription.getRooms;
+import java.awt.Color;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ComponentEvent;
+import java.awt.event.ComponentListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
@@ -21,16 +33,35 @@ public class Room0 extends javax.swing.JFrame {
     /**
      * Creates new form Room1
      */
-    private static ProjectObject bow;
+    private static ProjectObject bow, north;
+    private Room currentroom = new Room();
+
     public Room0() {
         initComponents();
-        
-        bow = new ProjectObject(0,"arco","/images/bow.jpg",Object,this);
-        
+        currentroom = findCurrentRoom(this);
+        bow = new ProjectObject(0, "arco", "/images/bow.jpg", Object, this);
+        north = new ProjectObject(1, "nord", "/images/inventory.png", jButton1, this, 1);
+        north.setEnable(0);
+        /*jButton2.addActionListener(l);*/
+        jButton1.addActionListener(l);
+
         //room = new Room(1,this,"C:\\Users\\Utente\\Downloads\\imgproject\\CAVE22.jpg","Caverna",backscreen);
         //room2 = new Room(2,new Room2(),"Boh");
         //room.setNorth(room2);
     }
+
+    public ActionListener l = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent arg0) {
+
+            if (findObject(bow) >= 0) {
+                north.setEnable(1);
+                removeObject(bow);
+                System.out.println(getInventory().getInventoryList());
+            }
+
+        }
+    };
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -54,6 +85,8 @@ public class Room0 extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(1080, 720));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/inventory.png"))); // NOI18N
         jButton1.setText("jButton1");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,20 +133,44 @@ public class Room0 extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    /*public ActionListener l = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent arg0) {
+
+            activate();
+
+        }
+    };
+
+    public void activate() {
+        if (findObject(bow) >= 0) {
+            jButton3.setEnabled(true);
+        }
+    }*/
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         //getRooms().get(0).getNorth().getThisRoom().setVisible(true);
         //getThisGame().getmyRoom(0).getNorth().getThisRoom().setVisible(true);
         //this.dispose();
-        goNorth(this);
+        if (north.isEnable() == 1) {
+            System.out.println("Hai usato chiave!");
+            try {
+                TimeUnit.SECONDS.sleep(2);
+            } catch (InterruptedException ex) {
+                
+            }
+            goNorth(this);
+        } else {
+            System.out.println("Non hai la chiave per passare");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-       /* getInventory().refreshInventory();
+        /* getInventory().refreshInventory();
         getInventory().getInventoryform().setVisible(true);*/
-       openInventory();
+        openInventory();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void ObjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ObjectActionPerformed
@@ -128,7 +185,7 @@ public class Room0 extends javax.swing.JFrame {
         // TODO add your handling code here:
         //getRooms().get(0).getSouth().getThisRoom().setVisible(true);
         goSouth(this);
-        
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**

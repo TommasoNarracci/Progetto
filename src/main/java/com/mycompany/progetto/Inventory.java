@@ -26,7 +26,7 @@ la medesima immagine sul bottone.
  */
 public class Inventory {
 
-    private List<ProjectObject> inventory = new ArrayList<>();
+    private List<ProjectObject> inventoryList = new ArrayList<>();
     private JFrame inventoryform;
     private JLabel background;
     //private ProjectObject objectToInsert;
@@ -34,7 +34,7 @@ public class Inventory {
     }
 
     public int Size() {
-        return inventory.size();
+        return inventoryList.size();
     }
 
     public void setInventoryform(JFrame inventoryform) {
@@ -45,12 +45,12 @@ public class Inventory {
         return inventoryform;
     }
 
-    public List<ProjectObject> getInventory() {
-        return inventory;
+    public List<ProjectObject> getInventoryList() {
+        return inventoryList;
     }
 
-    public void setInventory(List<ProjectObject> inventory) {
-        this.inventory = inventory;
+    public void setInventoryList(List<ProjectObject> inventory) {
+        this.inventoryList = inventory;
     }
 
     public JLabel getBackground() {
@@ -62,11 +62,11 @@ public class Inventory {
     }
 
     public void add(ProjectObject obj) {
-        inventory.add(obj);
+        inventoryList.add(obj);
     }
 
     public void remove(ProjectObject obj) {
-        inventory.remove(obj);
+        inventoryList.remove(obj);
     }
 
     public void refreshInventory() {
@@ -91,7 +91,7 @@ public class Inventory {
     public void SetButton(int column, int row) {
         JButton jb = new JButton();
         ProjectObject obj = new ProjectObject();
-        obj = getInventory().get(column + (8*row));
+        obj = getInventoryList().get(column + (8*row));
         jb.setBounds(20 + 48 * column, 20 + 47 * row, 30, 30); //Inserimento nella casella corretta dell'inventario
         SetImageButton(obj,jb);
         jb.setToolTipText(obj.getObjectName());
