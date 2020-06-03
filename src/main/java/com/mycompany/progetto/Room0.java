@@ -39,29 +39,31 @@ public class Room0 extends javax.swing.JFrame {
 
     public Room0() {
         initComponents();
-        currentroom = findCurrentRoom(this);
+        //currentroom = findCurrentRoom(this);
         bow = new ProjectObject(0, "arco", "/images/bow.jpg", Object, this);
         north = new ProjectObject(1, "nord", "/images/inventory.png", jButton1, this, 1);
         north.setEnable(0);
-        /*jButton2.addActionListener(l);*/
         jButton1.addActionListener(l);
-
-        //room = new Room(1,this,"C:\\Users\\Utente\\Downloads\\imgproject\\CAVE22.jpg","Caverna",backscreen);
-        //room2 = new Room(2,new Room2(),"Boh");
-        //room.setNorth(room2);
     }
 
     public ActionListener l = new ActionListener() {
+
         @Override
         public void actionPerformed(ActionEvent arg0) {
-            if (north.isEnable() == 0) {
+            
                 if (findObject(bow) >= 0) {
                     north.setEnable(1);
                     removeObject(bow);
-                    System.out.println(getInventory().getInventoryList());
+                    System.out.println("Hai usato chiave!");
+                    try {
+                        TimeUnit.SECONDS.sleep(3);
+                    } catch (InterruptedException ex) {
+
+                    }
+                    jButton1.removeActionListener(l);
                 }
             }
-        }
+        
     };
 
     /**
@@ -151,16 +153,7 @@ public class Room0 extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        //getRooms().get(0).getNorth().getThisRoom().setVisible(true);
-        //getThisGame().getmyRoom(0).getNorth().getThisRoom().setVisible(true);
-        //this.dispose();
         if (north.isEnable() == 1) {
-            System.out.println("Hai usato chiave!");
-            try {
-                TimeUnit.SECONDS.sleep(2);
-            } catch (InterruptedException ex) {
-
-            }
             goNorth(this);
         } else {
             System.out.println("Non hai la chiave per passare");

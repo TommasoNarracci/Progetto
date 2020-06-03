@@ -24,8 +24,7 @@ public class Room {
     private Room north;
     private Room south;
     private Room east;
-    private Room west;
-
+    private Room west;   
     public Room() {
         this.id = -1;
     }
@@ -33,32 +32,29 @@ public class Room {
     public Room(int id, JFrame thisRoom) {
         this.id = id;
         this.thisRoom = thisRoom;
-
     }
 
     public Room(int id, JFrame thisRoom, String name) {
         this.id = id;
         this.thisRoom = thisRoom;
         this.name = name;
-
     }
-
     public Room(int id, JFrame thisRoom, String background, String name, JLabel label) {
         this.id = id;
         this.thisRoom = thisRoom;
         this.background = background;
         this.name = name;
         this.label = label;
-
         setWindow(background, label);
 
     }
-
+    
 
     public int getId() {
         return id;
     }
 
+ 
     public JFrame getThisRoom() {
         return thisRoom;
     }

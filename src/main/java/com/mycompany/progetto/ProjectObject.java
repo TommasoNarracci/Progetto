@@ -59,7 +59,18 @@ public class ProjectObject extends JButton {
         //this.enable = 1;
         SetObjectImage();
     }
-
+    public ProjectObject(int id, String objectName, String imagePath, JButton object, JFrame thisRoom,int enable, int reusable) {
+        this.id = id;
+        this.objectName = objectName;
+        this.imagePath = imagePath;
+        this.object = object;
+        this.thisRoom = thisRoom;
+        this.enable = enable;
+        this.reusable = reusable;
+        object.addActionListener(actionListener);
+        //this.enable = 1;
+        SetObjectImage();
+    }
     public void setId(int id) {
         this.id = id;
     }
