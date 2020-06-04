@@ -35,6 +35,7 @@ public class Game {
         room0.setNorth(room1);
         room0.setSouth(room2);
         room1.setSouth(room0);
+        System.out.println("Ciao");
         //bow = new ProjectObject(0,"arco","C:\\Users\\Utente\\Downloads\\imgproject\\bow.jpg",new Room0().Object);
         room0.getThisRoom().setVisible(true);
     }
