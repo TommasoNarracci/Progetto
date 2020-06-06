@@ -4,11 +4,13 @@
  * and open the template in the editor.
  */
 package com.mycompany.progetto;
+
 import static com.mycompany.progetto.Commands.*;
 import static com.mycompany.progetto.Inventory.*;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import javax.swing.Timer;
+
 /**
  *
  * @author MSIGaming
@@ -18,15 +20,16 @@ public class Room25 extends javax.swing.JFrame {
     /**
      * Creates new form Room25
      */
-    private ProjectObject key1,key2,key3;
+    private ProjectObject key1, key2, key3;
+
     public Room25() {
         initComponents();
-        key1 = new ProjectObject(7,"chiave sx");
-        key2 = new ProjectObject(8,"chiave dx");
-        key3 = new ProjectObject(9,"chiave middle");
+        key1 = new ProjectObject(7, "chiave sx");
+        key2 = new ProjectObject(8, "chiave dx");
+        key3 = new ProjectObject(9, "chiave middle");
         this.addWindowListener(l);
     }
-WindowListener l = new WindowListener() {
+    WindowListener l = new WindowListener() {
         @Override
         public void windowOpened(WindowEvent arg0) {
             text.setText("Questa stanza fa crescere in te sentimenti di angoscia...sarà colpa di quell'occhio?");
@@ -39,7 +42,7 @@ WindowListener l = new WindowListener() {
 
         @Override
         public void windowClosing(WindowEvent arg0) {
-           
+
         }
 
         @Override
@@ -48,7 +51,7 @@ WindowListener l = new WindowListener() {
 
         @Override
         public void windowIconified(WindowEvent arg0) {
-           
+
         }
 
         @Override
@@ -63,6 +66,7 @@ WindowListener l = new WindowListener() {
         public void windowDeactivated(WindowEvent arg0) {
         }
     };
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -151,12 +155,12 @@ WindowListener l = new WindowListener() {
 
     private void saurondoorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saurondoorActionPerformed
         // TODO add your handling code here:
-        if((findObject(key1)>=0) && (findObject(key2)>=0) && (findObject(key1)>= 0)){
-            goNorth(this);           
-        }else{
+        if ((findObject(key1) >= 0) && (findObject(key2) >= 0) && (findObject(key1) >= 0)) {
             removeObject(key1);
             removeObject(key2);
             removeObject(key3);
+            goNorth(this);
+        } else {
             text.setText("La potente magia dell'occhio non ti lascia passare,ma sono presenti 3 serrature...serviranno delle chiavi speciali?");
             Timer timer = new Timer(3000, event -> {
                 text.setText("");

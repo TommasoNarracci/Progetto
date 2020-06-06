@@ -120,6 +120,7 @@ public class Room30 extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         text.setBackground(new java.awt.Color(0, 0, 0));
+        text.setFont(new java.awt.Font("Papyrus", 3, 18)); // NOI18N
         text.setForeground(new java.awt.Color(255, 255, 255));
         text.setOpaque(true);
         getContentPane().add(text, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 680, 1080, 40));
@@ -233,7 +234,7 @@ public class Room30 extends javax.swing.JFrame {
         if (ringactive == 1) {
             hits++;
             leftarm.setVisible(false);
-            text.setText("SAURON:AAAAH...hai ferito un mio braccio...ma non sperare di averla vinta!!!");
+            text.setText("SAURON:'AAAAH...hai ferito un mio braccio...ma non sperare di averla vinta!!!'");
             Timer timer = new Timer(3000, event -> {
                 text.setText("");
             });
@@ -254,7 +255,7 @@ public class Room30 extends javax.swing.JFrame {
         if (ringactive == 1) {
             hits++;
             rightarm.setVisible(false);
-            text.setText("SAURON:GRRRRR...stupido hobbit per te è FINITA!!!");
+            text.setText("SAURON:'GRRRRR...stupido hobbit per te è FINITA!!!'");
             Timer timer = new Timer(3000, event -> {
                 text.setText("");
             });
@@ -275,7 +276,7 @@ public class Room30 extends javax.swing.JFrame {
         if (ringactive == 1) {
             hits++;
             legs.setVisible(false);
-            text.setText("SAURON:UUURGHHHH...mi sei sfuggito...ORA BASTA!!!");
+            text.setText("SAURON:'UUURGHHHH...mi sei sfuggito...ORA BASTA!!!'");
             Timer timer = new Timer(3000, event -> {
                 text.setText("");
             });
@@ -300,13 +301,13 @@ public class Room30 extends javax.swing.JFrame {
                 protected Void doInBackground() throws Exception {
                     this.publish("SAURON:'AHHHHHHHHHHH...non ci credo...'");
                     Thread.sleep(3000);
-                    this.publish("SAURON:'Il SIGNORE OSCURO...battuto da un semplice Hobbit...");
+                    this.publish("SAURON:'Il SIGNORE OSCURO...battuto da un semplice Hobbit...'");
                     Thread.sleep(3000);
-                    this.publish("SAURON:'Questo dimostra però la perfezione della mia creazione...L'UNICO ANELLO...");
+                    this.publish("SAURON:'Questo dimostra però la perfezione della mia creazione...L'UNICO ANELLO...'");
                     Thread.sleep(3000);
-                    this.publish("SAURON:'Andrò via sapendo che ho esaudito il mio desiderio...");
+                    this.publish("SAURON:'Andrò via sapendo che ho esaudito il mio desiderio...'");
                     Thread.sleep(3000);
-                    this.publish("SAURON:'Creare un anello per domarli tutti...");
+                    this.publish("SAURON:'Creare un anello per domarli tutti...'");
                     Thread.sleep(3000);
                     sauron.setVisible(false);
                     this.publish("HAI BATTUTO SAURON!!!SEI L'EROE DELLA TERRA DI MEZZO!!!");
