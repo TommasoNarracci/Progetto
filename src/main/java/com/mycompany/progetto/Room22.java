@@ -5,6 +5,12 @@
  */
 package com.mycompany.progetto;
 
+import static com.mycompany.progetto.Commands.*;
+import static com.mycompany.progetto.Inventory.*;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+import javax.swing.Timer;
+
 /**
  *
  * @author MSIGaming
@@ -14,10 +20,52 @@ public class Room22 extends javax.swing.JFrame {
     /**
      * Creates new form Room22
      */
+    ProjectObject gem,lotr,est;
+    int ringactivated;
     public Room22() {
         initComponents();
+        est = new ProjectObject(0,"est","/images/EST.png",east,this,0,1);
+        gem = new ProjectObject(4, "archengemma");
+        lotr = new ProjectObject(5, "usa anello","/images/ring.jpg",ring,this);
+        this.addWindowListener(l);
     }
+WindowListener l = new WindowListener() {
+        @Override
+        public void windowOpened(WindowEvent arg0) {
+            text.setText("SMAUG:'Oro,oro,ORO!!!...aspetta,cos'è quest'odore di uomo?");
+            Timer timer = new Timer(3000, event -> {
+                text.setText("");
+            });
+            timer.setRepeats(false);
+            timer.start();
+        }
 
+        @Override
+        public void windowClosing(WindowEvent arg0) {
+           
+        }
+
+        @Override
+        public void windowClosed(WindowEvent arg0) {
+        }
+
+        @Override
+        public void windowIconified(WindowEvent arg0) {
+           
+        }
+
+        @Override
+        public void windowDeiconified(WindowEvent arg0) {
+        }
+
+        @Override
+        public void windowActivated(WindowEvent arg0) {
+        }
+
+        @Override
+        public void windowDeactivated(WindowEvent arg0) {
+        }
+    };
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,30 +75,119 @@ public class Room22 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        text = new javax.swing.JLabel();
+        east = new javax.swing.JButton();
+        inventory = new javax.swing.JButton();
+        ring = new javax.swing.JButton();
+        north = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(0, 0));
+        setPreferredSize(new java.awt.Dimension(1080, 720));
+        setResizable(false);
+        setSize(new java.awt.Dimension(1080, 720));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/EST.png"))); // NOI18N
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.setFocusPainted(false);
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 280, -1, -1));
+        text.setBackground(new java.awt.Color(0, 0, 0));
+        text.setFont(new java.awt.Font("Papyrus", 3, 14)); // NOI18N
+        text.setForeground(new java.awt.Color(255, 255, 255));
+        text.setOpaque(true);
+        getContentPane().add(text, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 640, 1080, 40));
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/NORD.png"))); // NOI18N
-        jButton2.setBorderPainted(false);
-        jButton2.setContentAreaFilled(false);
-        jButton2.setFocusPainted(false);
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, -1, -1));
+        east.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/EST.png"))); // NOI18N
+        east.setBorderPainted(false);
+        east.setContentAreaFilled(false);
+        east.setFocusPainted(false);
+        east.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eastActionPerformed(evt);
+            }
+        });
+        getContentPane().add(east, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 280, -1, -1));
+
+        inventory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/inventario.png"))); // NOI18N
+        inventory.setBorderPainted(false);
+        inventory.setContentAreaFilled(false);
+        inventory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inventoryActionPerformed(evt);
+            }
+        });
+        getContentPane().add(inventory, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 540, -1, -1));
+
+        ring.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ring.png"))); // NOI18N
+        ring.setBorderPainted(false);
+        ring.setContentAreaFilled(false);
+        ring.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ringActionPerformed(evt);
+            }
+        });
+        getContentPane().add(ring, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 460, 40, 40));
+
+        north.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/NORD.png"))); // NOI18N
+        north.setBorderPainted(false);
+        north.setContentAreaFilled(false);
+        north.setFocusPainted(false);
+        north.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                northActionPerformed(evt);
+            }
+        });
+        getContentPane().add(north, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/tesoro.jpg"))); // NOI18N
+        jLabel1.setAlignmentY(0.0F);
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 720));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void inventoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventoryActionPerformed
+        // TODO add your handling code here:
+        openInventory();
+    }//GEN-LAST:event_inventoryActionPerformed
+
+    private void eastActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eastActionPerformed
+        // TODO add your handling code here:
+        if(est.isEnable() == 1){
+        goEast(this);
+        }else{
+            text.setText("E' troppo rischioso,il drago ti vedrà!Ci sarà pure un modo per passare...");
+            Timer timer = new Timer(3000, event -> {
+                text.setText("");
+            });
+            timer.setRepeats(false);
+            timer.start();
+        }
+    }//GEN-LAST:event_eastActionPerformed
+
+    private void northActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_northActionPerformed
+        // TODO add your handling code here:
+        if (findObject(gem) >= 0) {
+            goNorth(this);
+        } else {
+            text.setText("Thorin ha detto di recuperare l'archengemma...");
+            Timer timer = new Timer(3000, event -> {
+                text.setText("");
+            });
+            timer.setRepeats(false);
+            timer.start();
+        }
+    }//GEN-LAST:event_northActionPerformed
+
+    private void ringActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ringActionPerformed
+        // TODO add your handling code here:
+            est.setEnable(1);
+            text.setText("Hai attivato l'anello,ora sei invisibile!");
+            Timer timer = new Timer(3000, event -> {
+                text.setText("");
+            });
+            timer.setRepeats(false);
+            timer.start();
+            ring.setVisible(false);
+    }//GEN-LAST:event_ringActionPerformed
 
     /**
      * @param args the command line arguments
@@ -89,8 +226,11 @@ public class Room22 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton east;
+    private javax.swing.JButton inventory;
     public javax.swing.JLabel jLabel1;
+    private javax.swing.JButton north;
+    private javax.swing.JButton ring;
+    private javax.swing.JLabel text;
     // End of variables declaration//GEN-END:variables
 }

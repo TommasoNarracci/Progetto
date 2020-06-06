@@ -4,7 +4,10 @@
  * and open the template in the editor.
  */
 package com.mycompany.progetto;
-
+import static com.mycompany.progetto.Commands.*;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+import javax.swing.Timer;
 /**
  *
  * @author MSIGaming
@@ -14,10 +17,49 @@ public class Room23 extends javax.swing.JFrame {
     /**
      * Creates new form Room23
      */
+    ProjectObject arkengem;
     public Room23() {
         initComponents();
+        arkengem = new ProjectObject(4,"Arkengemma","/images/gemma.png",gem,this);
+        this.addWindowListener(l);
     }
+WindowListener l = new WindowListener() {
+        @Override
+        public void windowOpened(WindowEvent arg0) {
+            text.setText("Qui sei salvo...aspetta,cos'è questa luce proveniente delle montagne di oro?");
+            Timer timer = new Timer(3000, event -> {
+                text.setText("");
+            });
+            timer.setRepeats(false);
+            timer.start();
+        }
 
+        @Override
+        public void windowClosing(WindowEvent arg0) {
+           
+        }
+
+        @Override
+        public void windowClosed(WindowEvent arg0) {
+        }
+
+        @Override
+        public void windowIconified(WindowEvent arg0) {
+           
+        }
+
+        @Override
+        public void windowDeiconified(WindowEvent arg0) {
+        }
+
+        @Override
+        public void windowActivated(WindowEvent arg0) {
+        }
+
+        @Override
+        public void windowDeactivated(WindowEvent arg0) {
+        }
+    };
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,18 +69,53 @@ public class Room23 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        text = new javax.swing.JLabel();
+        gem = new javax.swing.JButton();
+        inventory = new javax.swing.JButton();
+        west = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gemma.png"))); // NOI18N
-        jButton1.setToolTipText("Arkengemma");
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.setFocusPainted(false);
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 480, 150, 90));
+        text.setBackground(new java.awt.Color(0, 0, 0));
+        text.setFont(new java.awt.Font("Papyrus", 3, 14)); // NOI18N
+        text.setForeground(new java.awt.Color(255, 255, 255));
+        text.setOpaque(true);
+        getContentPane().add(text, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 680, 1080, 40));
+
+        gem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gemma.png"))); // NOI18N
+        gem.setToolTipText("Arkengemma");
+        gem.setBorderPainted(false);
+        gem.setContentAreaFilled(false);
+        gem.setFocusPainted(false);
+        gem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gemActionPerformed(evt);
+            }
+        });
+        getContentPane().add(gem, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 480, 150, 90));
+
+        inventory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/inventario.png"))); // NOI18N
+        inventory.setBorderPainted(false);
+        inventory.setContentAreaFilled(false);
+        inventory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inventoryActionPerformed(evt);
+            }
+        });
+        getContentPane().add(inventory, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 590, -1, -1));
+
+        west.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/OVEST.png"))); // NOI18N
+        west.setBorderPainted(false);
+        west.setContentAreaFilled(false);
+        west.setFocusPainted(false);
+        west.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                westActionPerformed(evt);
+            }
+        });
+        getContentPane().add(west, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/arken.jpg"))); // NOI18N
         jLabel1.setToolTipText("");
@@ -46,6 +123,27 @@ public class Room23 extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void westActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_westActionPerformed
+        // TODO add your handling code here:
+        goWest(this);
+    }//GEN-LAST:event_westActionPerformed
+
+    private void gemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gemActionPerformed
+        // TODO add your handling code here:
+        PickObject(arkengem);
+                     text.setText("Ecco la fantastica Arkengemma!");
+            Timer timer = new Timer(3000, event -> {
+                text.setText("");
+            });
+            timer.setRepeats(false);
+            timer.start();
+    }//GEN-LAST:event_gemActionPerformed
+
+    private void inventoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventoryActionPerformed
+        // TODO add your handling code here:
+        openInventory();
+    }//GEN-LAST:event_inventoryActionPerformed
 
     /**
      * @param args the command line arguments
@@ -84,7 +182,10 @@ public class Room23 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton gem;
+    private javax.swing.JButton inventory;
     public javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel text;
+    private javax.swing.JButton west;
     // End of variables declaration//GEN-END:variables
 }

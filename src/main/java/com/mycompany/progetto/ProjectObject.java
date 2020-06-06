@@ -68,7 +68,6 @@ public class ProjectObject extends JButton {
         this.enable = enable;
         this.reusable = reusable;
         object.addActionListener(actionListener);
-        //this.enable = 1;
         SetObjectImage();
     }
     public void setId(int id) {

@@ -5,6 +5,12 @@
  */
 package com.mycompany.progetto;
 
+import static com.mycompany.progetto.Commands.*;
+import static com.mycompany.progetto.Inventory.*;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+import javax.swing.Timer;
+
 /**
  *
  * @author MSIGaming
@@ -14,9 +20,52 @@ public class Room26 extends javax.swing.JFrame {
     /**
      * Creates new form Room26
      */
+    ProjectObject key1, key2;
+
     public Room26() {
         initComponents();
+        key1 = new ProjectObject(7, "chiavesx");
+        key2 = new ProjectObject(8, "chiavedx");
+        this.addWindowListener(l);
     }
+  WindowListener l = new WindowListener() {
+        @Override
+        public void windowOpened(WindowEvent arg0) {
+            text.setText("3 porte come le 3 serrature della porta magica con quell'occhio inquietante...sarà una coincidenza?");
+            Timer timer = new Timer(3000, event -> {
+                text.setText("");
+            });
+            timer.setRepeats(false);
+            timer.start();
+        }
+
+        @Override
+        public void windowClosing(WindowEvent arg0) {
+
+        }
+
+        @Override
+        public void windowClosed(WindowEvent arg0) {
+        }
+
+        @Override
+        public void windowIconified(WindowEvent arg0) {
+
+        }
+
+        @Override
+        public void windowDeiconified(WindowEvent arg0) {
+        }
+
+        @Override
+        public void windowActivated(WindowEvent arg0) {
+        }
+
+        @Override
+        public void windowDeactivated(WindowEvent arg0) {
+        }
+    };
+  
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -27,28 +76,72 @@ public class Room26 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        text = new javax.swing.JLabel();
+        inventory = new javax.swing.JButton();
+        west = new javax.swing.JButton();
+        south = new javax.swing.JButton();
+        east = new javax.swing.JButton();
+        north = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.setFocusPainted(false);
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 490, 70, 80));
+        text.setBackground(new java.awt.Color(0, 0, 0));
+        text.setFont(new java.awt.Font("Papyrus", 3, 14)); // NOI18N
+        text.setForeground(new java.awt.Color(255, 255, 255));
+        text.setOpaque(true);
+        getContentPane().add(text, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 680, 1080, 40));
 
-        jButton2.setBorderPainted(false);
-        jButton2.setContentAreaFilled(false);
-        jButton2.setFocusPainted(false);
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 470, 60, 60));
+        inventory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/inventario.png"))); // NOI18N
+        inventory.setBorderPainted(false);
+        inventory.setContentAreaFilled(false);
+        inventory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inventoryActionPerformed(evt);
+            }
+        });
+        getContentPane().add(inventory, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 590, -1, -1));
 
-        jButton3.setBorderPainted(false);
-        jButton3.setContentAreaFilled(false);
-        jButton3.setFocusPainted(false);
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 490, 60, 80));
+        west.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/CHIUSO.png"))); // NOI18N
+        west.setBorderPainted(false);
+        west.setContentAreaFilled(false);
+        west.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                westActionPerformed(evt);
+            }
+        });
+        getContentPane().add(west, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 540, -1, -1));
+
+        south.setBorderPainted(false);
+        south.setContentAreaFilled(false);
+        south.setFocusPainted(false);
+        south.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                southActionPerformed(evt);
+            }
+        });
+        getContentPane().add(south, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 490, 70, 80));
+
+        east.setBorderPainted(false);
+        east.setContentAreaFilled(false);
+        east.setFocusPainted(false);
+        east.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eastActionPerformed(evt);
+            }
+        });
+        getContentPane().add(east, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 470, 60, 60));
+
+        north.setBorderPainted(false);
+        north.setContentAreaFilled(false);
+        north.setFocusPainted(false);
+        north.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                northActionPerformed(evt);
+            }
+        });
+        getContentPane().add(north, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 490, 60, 80));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/3door.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 720));
@@ -56,10 +149,45 @@ public class Room26 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
+    private void inventoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventoryActionPerformed
+        // TODO add your handling code here:
+        openInventory();
+    }//GEN-LAST:event_inventoryActionPerformed
+
+    private void northActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_northActionPerformed
+        // TODO add your handling code here:
+        goNorth(this);
+    }//GEN-LAST:event_northActionPerformed
+
+    private void southActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_southActionPerformed
+        // TODO add your handling code here:
+        goSouth(this);
+    }//GEN-LAST:event_southActionPerformed
+
+    private void westActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_westActionPerformed
+        // TODO add your handling code here:
+        goWest(this);
+    }//GEN-LAST:event_westActionPerformed
+
+    private void eastActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eastActionPerformed
+        // TODO add your handling code here:
+        if (findObject(key1) >= 0 && findObject(key2) >= 0) {
+            goEast(this);
+        } else {
+            text.setText("Questa stanza emana un'aura inquietante...sarà meglio visitare prima le altre 2!");
+            Timer timer = new Timer(3000, event -> {
+                text.setText("");
+            });
+            timer.setRepeats(false);
+            timer.start();
+        }
+    
+    }//GEN-LAST:event_eastActionPerformed
+
+/**
+ * @param args the command line arguments
+ */
+public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -70,16 +198,31 @@ public class Room26 extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
-                }
+
+}
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Room26.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Room26.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Room26.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Room26.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Room26.class  
+
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+
+catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Room26.class  
+
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+
+catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Room26.class  
+
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+
+catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Room26.class  
+
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -90,12 +233,15 @@ public class Room26 extends javax.swing.JFrame {
                 new Room26().setVisible(true);
             }
         });
-    }
+        }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton east;
+    private javax.swing.JButton inventory;
     public javax.swing.JLabel jLabel1;
+    private javax.swing.JButton north;
+    private javax.swing.JButton south;
+    private javax.swing.JLabel text;
+    private javax.swing.JButton west;
     // End of variables declaration//GEN-END:variables
 }

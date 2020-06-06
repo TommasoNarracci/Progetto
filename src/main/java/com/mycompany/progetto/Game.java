@@ -11,18 +11,20 @@ import static com.mycompany.progetto.Inventory.*;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 
 /*
  * @author Utente
  */
 public class Game {
-    private static Color c = new Color(0,0,0);
+
+    private static Color c = new Color(0, 0, 0);
     private static Room room0, room1, room2, room3, room4, room5,
             room6, room7, room8, room9, room10, room11, room12, room13,
             room14, room15, room16, room17, room18, room19, room20, room21, room22, room23,
-            room24,room25,room26,room27,room28,room29,room30;
-    private static ProjectObject bow;
+            room24, room25, room26, room27, room28, room29, room30,FINALROOM;
+    private ProjectObject sword;
     private static JFrame inventory = new InventoryForm();
 
     public static void main(String[] args) {
@@ -30,7 +32,9 @@ public class Game {
         //setThisGame(thisGame);
         getInventory().setInventoryform(inventory);
         room0 = new Room(0, new Room0(), "/images/11.jpg", "casa", new Room0().backscreen);
+        
         room1 = new Room(1, new Room1(), "/images/scalinata.jpg", "scalinata", new Room1().background);
+        
         room2 = new Room(2, new Room2(), "/images/seminterrato.jpg", "seminterrato", new Room2().jLabel1);
 
         room3 = new Room(3, new Room3(), "/images/hobbiton.jpg", "hobbiton", new Room3().jLabel1);
@@ -71,24 +75,25 @@ public class Game {
 
         room21 = new Room(21, new Room21(), "/images/regnosotto.jpg", "regnosotto", new Room21().jLabel1);
 
-        room22 = new Room(22, new Room22(), "/images/tesoro.jpg", "smaug", new Room22().jLabel1);
+        room22 = new Room(22, new Room22(), "/images/tesoro.jpg","smaug",new Room22().jLabel1);
 
         room23 = new Room(23, new Room23(), "/images/arken.jpg", "arkengemma", new Room23().jLabel1);
+
+        room24 = new Room(24, new Room24(), "/images/falò.jpg", "falò", new Room24().jLabel1);
+
+        room25 = new Room(25, new Room25(), "/images/caso.jpg", "caso", new Room25().jLabel1);
+
+        room26 = new Room(26, new Room26(), "/images/3door.jpg", "3door", new Room26().jLabel1);
+
+        room27 = new Room(27, new Room27(), "/images/balorg.jpg", "balrog", new Room27().jLabel1);
+
+        room28 = new Room(28, new Room28(), "/images/baule.jpg", "baule", new Room28().jLabel1);
+
+        room29 = new Room(29, new Room29(), "/images/filo.jpg", "filo", new Room29().jLabel1);
+
+        room30 = new Room(30, new Room30(), "/images/fine.jpg", "sauron", new Room30().jLabel1);
         
-         room24 = new Room(24, new Room24(), "/images/falò.jpg", "falò", new Room24().jLabel1);
-
-         room25 = new Room(25, new Room25(), "/images/caso.jpg", "caso", new Room25().jLabel1);
-         
-          room26 = new Room(26, new Room26(), "/images/3door.jpg", "3door", new Room26().jLabel1);
-          
-           room27 = new Room(27, new Room27(), "/images/balorg.jpg", "balrog", new Room27().jLabel1);
-
-           room28 = new Room(28, new Room28(), "/images/baule.jpg", "baule", new Room28().jLabel1);
-           
-            room29 = new Room(29, new Room29(), "/images/filo.jpg", "filo", new Room29().jLabel1);
-            
-            room30 = new Room(29, new Room29(), "/images/fine.jpg", "sauron", new Room30().jLabel1);
-           
+        FINALROOM = new Room(31,new FINALROOM());
         getRooms().add(room0);
         getRooms().add(room1);
         getRooms().add(room2);
@@ -120,20 +125,39 @@ public class Game {
         getRooms().add(room28);
         getRooms().add(room29);
         getRooms().add(room30);
-        
+        getRooms().add(FINALROOM);
         room0.setWest(room2);
         //room0.setSouth(room2);
         room2.setSouth(room3);
         room3.setSouth(room1);
-        
-        
-        //bow = new ProjectObject(0,"arco","C:\\Users\\Utente\\Downloads\\imgproject\\bow.jpg",new Room0().Object);
-        
-    
-        
-        room0.getThisRoom().setVisible(true);
-        
+        //Mappa Leo
+        room16.setWest(room17);
+        room17.setEast(room16);
+        room17.setWest(room18);
+        room18.setEast(room17);
+        room18.setNorth(room19);
+        room19.setSouth(room18);
+        room19.setEast(room20);
+        room20.setWest(room19);
+        room20.setNorth(room21);
+        room21.setNorth(room22);
+        room22.setSouth(room21);
+        room22.setNorth(room24);
+        room22.setEast(room23);
+        room23.setWest(room22);//ADD
+        room24.setNorth(room25);//NON POSSIBILE TORNARE INDIETRO
+        room25.setNorth(room30);//BOSS
+        room25.setEast(room26);
+        room25.setSouth(room24);
+        room26.setWest(room25);//ADD
+        room26.setEast(room27);
+        room26.setNorth(room28);
+        room26.setSouth(room29);
+        room27.setWest(room26);//ADD
+        room28.setSouth(room26);
+        room29.setNorth(room26);
+        room30.setNorth(FINALROOM);
+        room30.getThisRoom().setVisible(true);
+
     }
 }
-
-
