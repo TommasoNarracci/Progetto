@@ -9,9 +9,11 @@ import static com.mycompany.progetto.Commands.*;
 import static com.mycompany.progetto.Inventory.*;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.SwingWorker;
 import javax.swing.Timer;
 
 /**
@@ -168,13 +170,31 @@ public class Room17 extends javax.swing.JFrame {
     private void gollumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gollumActionPerformed
         // TODO add your handling code here:
         if (findObject(sword) >= 0) {
-            gollum.setVisible(false);
-            text.setText("Hai ucciso gollum!");
-            Timer timer = new Timer(2000, event -> {
-                text.setText("");
-            });
-            timer.setRepeats(false);
-            timer.start();
+            SwingWorker<Void, String> worker = new SwingWorker<Void, String>() {
+
+                @Override
+                protected Void doInBackground() throws Exception {
+                    this.publish("SMEGLE:'GOLLUM!GOLLUM!'");
+                    Thread.sleep(3000);
+                    this.publish("GOLLUM:'OOOOH....IL MIO....TESSSSOOOROOOOO...'");
+                    Thread.sleep(3000);
+                    gollum.setVisible(false);
+                    this.publish("Hai ucciso GOLLUM!Con se portava un'oggetto di inestimabile valore...");
+                    Thread.sleep(3000);
+                    this.publish("");
+                    return null;
+                }
+
+                @Override
+                protected void process(List<String> res) {
+                    for (String thistext : res) {
+                        text.setText(thistext);
+                    }
+                }
+
+            };
+
+            worker.execute();
             ovest.setEnable(1);
         } else {
             //try {
