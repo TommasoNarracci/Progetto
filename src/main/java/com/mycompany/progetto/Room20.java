@@ -72,6 +72,7 @@ WindowListener l = new WindowListener() {
     private void initComponents() {
 
         text = new javax.swing.JLabel();
+        name = new javax.swing.JLabel();
         inventory = new javax.swing.JButton();
         river = new javax.swing.JButton();
         barile = new javax.swing.JButton();
@@ -85,6 +86,13 @@ WindowListener l = new WindowListener() {
         text.setForeground(new java.awt.Color(255, 255, 255));
         text.setOpaque(true);
         getContentPane().add(text, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 680, 1080, 40));
+
+        name.setBackground(new java.awt.Color(0, 0, 0));
+        name.setFont(new java.awt.Font("Papyrus", 3, 24)); // NOI18N
+        name.setForeground(new java.awt.Color(255, 255, 255));
+        name.setText("Cantine Elfiche");
+        name.setOpaque(true);
+        getContentPane().add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 240, 60));
 
         inventory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/inventario.png"))); // NOI18N
         inventory.setBorderPainted(false);
@@ -188,6 +196,7 @@ WindowListener l = new WindowListener() {
     private javax.swing.JButton barile;
     private javax.swing.JButton inventory;
     public javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel name;
     private javax.swing.JButton river;
     private javax.swing.JLabel text;
     // End of variables declaration//GEN-END:variables

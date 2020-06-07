@@ -13,7 +13,9 @@ import java.text.Format;
 import javax.print.attribute.standard.Media;
 import javax.swing.*;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.sound.sampled.AudioInputStream;
@@ -21,46 +23,23 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
+import javax.sound.sampled.*;
 
 /**
  *
  * @author Utente
  */
 public class FINALROOM extends javax.swing.JFrame {
-    Thread soundThread;
-    File musicPath;
+
     /**
      * Creates new form NewJFrame
      */
     public FINALROOM() {
         initComponents();
         this.setLocationRelativeTo(null);
-        /*try {
-            PlayMusic("C:\\Users\\Utente\\Documents\\NetBeansProjects\\Progetto\\src\\main\\resources\\Music\\videoplayback.wav");
-        } catch (UnsupportedAudioFileException ex) {
-            Logger.getLogger(FINALROOM.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (LineUnavailableException ex) {
-            Logger.getLogger(FINALROOM.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(FINALROOM.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        */
-    }/*
-    void PlayMusic(String path) throws UnsupportedAudioFileException, LineUnavailableException, IOException{
-        try{
-             musicPath = new File(path);
-             if(musicPath.exists()){
-                AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicPath);
-                Clip clip = AudioSystem.getClip();
-                clip.start();
-            }else{
-                System.out.println("File non trovato");
-            }
-        }catch(Exception e){
-            e.printStackTrace();
-            
-        }
-    }*/
+
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -77,6 +56,11 @@ public class FINALROOM extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setBackground(new java.awt.Color(0, 0, 0));
@@ -112,6 +96,34 @@ public class FINALROOM extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+        AudioInputStream audioStream = null;
+        try {
+            initComponents();
+            this.setLocationRelativeTo(null);
+            File soundFile = new File("./src/main/resources/Music/videoplayback.wav");
+            audioStream = AudioSystem.getAudioInputStream(soundFile);
+            AudioFormat format = audioStream.getFormat();
+            DataLine.Info info = new DataLine.Info(Clip.class, format);
+            Clip audioClip = (Clip) AudioSystem.getLine(info);
+            audioClip.open(audioStream);
+            audioClip.start();
+        } catch (UnsupportedAudioFileException ex) {
+            Logger.getLogger(FINALROOM.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(FINALROOM.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (LineUnavailableException ex) {
+            Logger.getLogger(FINALROOM.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                audioStream.close();
+            } catch (IOException ex) {
+                Logger.getLogger(FINALROOM.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_formWindowOpened
+
     /**
      * @param args the command line arguments
      */
@@ -143,7 +155,9 @@ public class FINALROOM extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+
                 new FINALROOM().setVisible(true);
+
             }
         });
     }

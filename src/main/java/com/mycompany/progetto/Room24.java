@@ -26,7 +26,7 @@ public class Room24 extends javax.swing.JFrame {
         grimaldello.setVisible(false);
         bow = new ProjectObject(0,"arco elfico","/images/legolas.png",arco,this);
         gem = new ProjectObject(4,"arkengemma");
-        picklock = new ProjectObject(6,"grimaldello","/images/key.jpg",grimaldello,this);
+        picklock = new ProjectObject(6,"grimaldello","/images/grimaldello.png",grimaldello,this);
         arsword = new ProjectObject(10,"spada aragorn","/images/swordarag.png",aragornsw,this);
         this.addWindowListener(l);
     }
@@ -102,6 +102,7 @@ WindowListener l = new WindowListener() {
     private void initComponents() {
 
         text = new javax.swing.JLabel();
+        name = new javax.swing.JLabel();
         inventory = new javax.swing.JButton();
         north = new javax.swing.JButton();
         grimaldello = new javax.swing.JButton();
@@ -117,6 +118,13 @@ WindowListener l = new WindowListener() {
         text.setForeground(new java.awt.Color(255, 255, 255));
         text.setOpaque(true);
         getContentPane().add(text, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 680, 1080, 40));
+
+        name.setBackground(new java.awt.Color(0, 0, 0));
+        name.setFont(new java.awt.Font("Papyrus", 3, 24)); // NOI18N
+        name.setForeground(new java.awt.Color(255, 255, 255));
+        name.setText("Falò di THORIN");
+        name.setOpaque(true);
+        getContentPane().add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 240, 60));
 
         inventory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/inventario.png"))); // NOI18N
         inventory.setBorderPainted(false);
@@ -139,7 +147,7 @@ WindowListener l = new WindowListener() {
         });
         getContentPane().add(north, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, -1, -1));
 
-        grimaldello.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/key.png"))); // NOI18N
+        grimaldello.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/grimaldello.png"))); // NOI18N
         grimaldello.setBorderPainted(false);
         grimaldello.setContentAreaFilled(false);
         grimaldello.addActionListener(new java.awt.event.ActionListener() {
@@ -147,7 +155,7 @@ WindowListener l = new WindowListener() {
                 grimaldelloActionPerformed(evt);
             }
         });
-        getContentPane().add(grimaldello, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 420, -1, -1));
+        getContentPane().add(grimaldello, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 360, 70, 90));
 
         aragornsw.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/swordarag.png"))); // NOI18N
         aragornsw.setBorderPainted(false);
@@ -253,6 +261,7 @@ WindowListener l = new WindowListener() {
     private javax.swing.JButton grimaldello;
     private javax.swing.JButton inventory;
     public javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel name;
     private javax.swing.JButton north;
     private javax.swing.JLabel text;
     // End of variables declaration//GEN-END:variables

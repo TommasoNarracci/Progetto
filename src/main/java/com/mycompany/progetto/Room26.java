@@ -77,6 +77,7 @@ public class Room26 extends javax.swing.JFrame {
     private void initComponents() {
 
         text = new javax.swing.JLabel();
+        name = new javax.swing.JLabel();
         inventory = new javax.swing.JButton();
         west = new javax.swing.JButton();
         south = new javax.swing.JButton();
@@ -92,6 +93,13 @@ public class Room26 extends javax.swing.JFrame {
         text.setForeground(new java.awt.Color(255, 255, 255));
         text.setOpaque(true);
         getContentPane().add(text, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 680, 1080, 40));
+
+        name.setBackground(new java.awt.Color(0, 0, 0));
+        name.setFont(new java.awt.Font("Papyrus", 3, 24)); // NOI18N
+        name.setForeground(new java.awt.Color(255, 255, 255));
+        name.setText("Gran Corridoio");
+        name.setOpaque(true);
+        getContentPane().add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 240, 60));
 
         inventory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/inventario.png"))); // NOI18N
         inventory.setBorderPainted(false);
@@ -239,6 +247,7 @@ catch (javax.swing.UnsupportedLookAndFeelException ex) {
     private javax.swing.JButton east;
     private javax.swing.JButton inventory;
     public javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel name;
     private javax.swing.JButton north;
     private javax.swing.JButton south;
     private javax.swing.JLabel text;

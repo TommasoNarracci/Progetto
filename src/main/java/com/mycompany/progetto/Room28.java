@@ -78,6 +78,7 @@ public class Room28 extends javax.swing.JFrame {
     private void initComponents() {
 
         text = new javax.swing.JLabel();
+        name = new javax.swing.JLabel();
         chest = new javax.swing.JButton();
         key1 = new javax.swing.JButton();
         inventory = new javax.swing.JButton();
@@ -92,6 +93,13 @@ public class Room28 extends javax.swing.JFrame {
         text.setForeground(new java.awt.Color(255, 255, 255));
         text.setOpaque(true);
         getContentPane().add(text, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 680, 1080, 40));
+
+        name.setBackground(new java.awt.Color(0, 0, 0));
+        name.setFont(new java.awt.Font("Papyrus", 3, 24)); // NOI18N
+        name.setForeground(new java.awt.Color(255, 255, 255));
+        name.setText("Sala Antica");
+        name.setOpaque(true);
+        getContentPane().add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 240, 60));
 
         chest.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/2.png"))); // NOI18N
         chest.setToolTipText("");
@@ -222,6 +230,7 @@ public class Room28 extends javax.swing.JFrame {
     private javax.swing.JButton inventory;
     public javax.swing.JLabel jLabel1;
     private javax.swing.JButton key1;
+    private javax.swing.JLabel name;
     private javax.swing.JButton south;
     private javax.swing.JLabel text;
     // End of variables declaration//GEN-END:variables

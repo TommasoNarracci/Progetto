@@ -144,20 +144,20 @@ public class Game {
         room22.setSouth(room21);
         room22.setNorth(room24);
         room22.setEast(room23);
-        room23.setWest(room22);//ADD
-        room24.setNorth(room25);//NON POSSIBILE TORNARE INDIETRO
-        room25.setNorth(room30);//BOSS
+        room23.setWest(room22);
+        room24.setNorth(room25);
+        room25.setNorth(room30);
         room25.setEast(room26);
         room25.setSouth(room24);
-        room26.setWest(room25);//ADD
+        room26.setWest(room25);
         room26.setEast(room27);
         room26.setNorth(room28);
         room26.setSouth(room29);
-        room27.setWest(room26);//ADD
+        room27.setWest(room26);
         room28.setSouth(room26);
         room29.setNorth(room26);
         room30.setNorth(FINALROOM);
-        room30.getThisRoom().setVisible(true);
+        room16.getThisRoom().setVisible(true);
 
     }
 }

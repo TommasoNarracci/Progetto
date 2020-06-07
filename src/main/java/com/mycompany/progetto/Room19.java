@@ -69,6 +69,7 @@ WindowListener l = new WindowListener() {
     private void initComponents() {
 
         text = new javax.swing.JLabel();
+        name = new javax.swing.JLabel();
         east = new javax.swing.JButton();
         south = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -81,6 +82,13 @@ WindowListener l = new WindowListener() {
         text.setForeground(new java.awt.Color(255, 255, 255));
         text.setOpaque(true);
         getContentPane().add(text, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 680, 1080, 40));
+
+        name.setBackground(new java.awt.Color(0, 0, 0));
+        name.setFont(new java.awt.Font("Papyrus", 3, 24)); // NOI18N
+        name.setForeground(new java.awt.Color(255, 255, 255));
+        name.setText("Cava di HirkWood");
+        name.setOpaque(true);
+        getContentPane().add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 240, 60));
 
         east.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/CHIUSO.png"))); // NOI18N
         east.setBorderPainted(false);
@@ -159,6 +167,7 @@ WindowListener l = new WindowListener() {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton east;
     public javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel name;
     private javax.swing.JButton south;
     private javax.swing.JLabel text;
     // End of variables declaration//GEN-END:variables

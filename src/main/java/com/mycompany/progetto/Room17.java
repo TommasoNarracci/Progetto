@@ -80,6 +80,7 @@ public class Room17 extends javax.swing.JFrame {
     private void initComponents() {
 
         text = new javax.swing.JLabel();
+        name = new javax.swing.JLabel();
         inventory = new javax.swing.JButton();
         west = new javax.swing.JButton();
         gollum = new javax.swing.JButton();
@@ -95,6 +96,13 @@ public class Room17 extends javax.swing.JFrame {
         text.setToolTipText("");
         text.setOpaque(true);
         getContentPane().add(text, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 680, 1080, 40));
+
+        name.setBackground(new java.awt.Color(0, 0, 0));
+        name.setFont(new java.awt.Font("Papyrus", 3, 24)); // NOI18N
+        name.setForeground(new java.awt.Color(255, 255, 255));
+        name.setText("Caverna di Gollum");
+        name.setOpaque(true);
+        getContentPane().add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 240, 60));
 
         inventory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/inventario.png"))); // NOI18N
         inventory.setBorderPainted(false);
@@ -260,6 +268,7 @@ public class Room17 extends javax.swing.JFrame {
     private javax.swing.JButton gollum;
     private javax.swing.JButton inventory;
     public javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel name;
     private javax.swing.JButton ring;
     public javax.swing.JLabel text;
     private javax.swing.JButton west;

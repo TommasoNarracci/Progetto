@@ -76,6 +76,7 @@ WindowListener l = new WindowListener() {
     private void initComponents() {
 
         text = new javax.swing.JLabel();
+        name = new javax.swing.JLabel();
         east = new javax.swing.JButton();
         inventory = new javax.swing.JButton();
         ring = new javax.swing.JButton();
@@ -84,7 +85,7 @@ WindowListener l = new WindowListener() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(0, 0));
-        setPreferredSize(new java.awt.Dimension(1080, 720));
+        setMaximumSize(new java.awt.Dimension(1080, 720));
         setResizable(false);
         setSize(new java.awt.Dimension(1080, 720));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -95,6 +96,13 @@ WindowListener l = new WindowListener() {
         text.setOpaque(true);
         getContentPane().add(text, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 640, 1080, 40));
 
+        name.setBackground(new java.awt.Color(0, 0, 0));
+        name.setFont(new java.awt.Font("Papyrus", 3, 24)); // NOI18N
+        name.setForeground(new java.awt.Color(255, 255, 255));
+        name.setText("Gran Salone");
+        name.setOpaque(true);
+        getContentPane().add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 240, 60));
+
         east.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/EST.png"))); // NOI18N
         east.setBorderPainted(false);
         east.setContentAreaFilled(false);
@@ -104,7 +112,7 @@ WindowListener l = new WindowListener() {
                 eastActionPerformed(evt);
             }
         });
-        getContentPane().add(east, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 280, -1, -1));
+        getContentPane().add(east, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 280, -1, -1));
 
         inventory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/inventario.png"))); // NOI18N
         inventory.setBorderPainted(false);
@@ -229,6 +237,7 @@ WindowListener l = new WindowListener() {
     private javax.swing.JButton east;
     private javax.swing.JButton inventory;
     public javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel name;
     private javax.swing.JButton north;
     private javax.swing.JButton ring;
     private javax.swing.JLabel text;

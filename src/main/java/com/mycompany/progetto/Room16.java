@@ -69,6 +69,7 @@ WindowListener l = new WindowListener() {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        name = new javax.swing.JLabel();
         text = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         north = new javax.swing.JButton();
@@ -77,6 +78,13 @@ WindowListener l = new WindowListener() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        name.setBackground(new java.awt.Color(0, 0, 0));
+        name.setFont(new java.awt.Font("Papyrus", 3, 24)); // NOI18N
+        name.setForeground(new java.awt.Color(255, 255, 255));
+        name.setText("Fiume Incantato");
+        name.setOpaque(true);
+        getContentPane().add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 240, 60));
 
         text.setBackground(new java.awt.Color(0, 0, 0));
         text.setForeground(new java.awt.Color(255, 255, 255));
@@ -176,6 +184,7 @@ WindowListener l = new WindowListener() {
     private javax.swing.JButton inventory;
     private javax.swing.JButton jButton1;
     public javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel name;
     private javax.swing.JButton north;
     private javax.swing.JLabel text;
     // End of variables declaration//GEN-END:variables
