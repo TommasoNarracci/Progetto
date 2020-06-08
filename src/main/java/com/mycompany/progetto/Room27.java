@@ -23,13 +23,13 @@ public class Room27 extends javax.swing.JFrame {
      * Creates new form Room27
      */
     int ringactive = 0;
-    ProjectObject arsword,thiskey3,thisring;
+    ProjectObject arsword, thiskey3, thisring;
 
     public Room27() {
         initComponents();
-        arsword = new ProjectObject(10, "spada aragorn");
-        thiskey3 = new ProjectObject(9, "chiaveMiddle", "/images/mordorkey.jpg", key3, this);
-        thisring = new ProjectObject(2, "anello", "/images/ring.png", ring, this);
+        arsword = new ProjectObject(8, "spada aragorn");
+        thiskey3 = new ProjectObject(19, "chiaveMiddle", "/images/mordorkey.jpg", key3, this);
+        thisring = new ProjectObject(11, "anello", "/images/ring.png", ring, this);
         this.addWindowListener(l);
     }
     WindowListener l = new WindowListener() {
@@ -226,29 +226,29 @@ public class Room27 extends javax.swing.JFrame {
             if (findObject(arsword) >= 0) {
                 SwingWorker<Void, String> worker = new SwingWorker<Void, String>() {
 
-                @Override
-                protected Void doInBackground() throws Exception {
-                    this.publish("BALROG:'AAAAAAAARRRRRGGGGGGGHHHHH...ARGH...AAA...A...");
-                    Thread.sleep(3000);
-                    this.publish("Sei riuscito a sopraffare il demone BALROG!!!");
-                    Thread.sleep(3000);
-                    this.publish("");
-                    jLabel1.setVisible(false);
-                    balrogheart.setVisible(false);
-                    balrogbody.setVisible(false);
-                    return null;
-                }
-
-                @Override
-                protected void process(List<String> res) {
-                    for (String thistext : res) {
-                        text.setText(thistext);
+                    @Override
+                    protected Void doInBackground() throws Exception {
+                        this.publish("BALROG:'AAAAAAAARRRRRGGGGGGGHHHHH...ARGH...AAA...A...");
+                        Thread.sleep(3000);
+                        this.publish("Sei riuscito a sopraffare il demone BALROG!!!");
+                        Thread.sleep(3000);
+                        this.publish("");
+                        jLabel1.setVisible(false);
+                        balrogheart.setVisible(false);
+                        balrogbody.setVisible(false);
+                        return null;
                     }
-                }
 
-            };
+                    @Override
+                    protected void process(List<String> res) {
+                        for (String thistext : res) {
+                            text.setText(thistext);
+                        }
+                    }
 
-            worker.execute();
+                };
+
+                worker.execute();
             } else {
                 text.setText("Hai trovato il punto critico,ma ti serve una spada potente per sopraffarlo!!!");
                 Timer timer = new Timer(3000, event -> {

@@ -6,12 +6,6 @@
 package com.mycompany.progetto;
 
 import static com.mycompany.progetto.ProjectGameDescription.*;
-import static com.mycompany.progetto.Commands.*;
-import static com.mycompany.progetto.Inventory.*;
-import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.JButton;
 import javax.swing.JFrame;
 
 /*
@@ -19,11 +13,10 @@ import javax.swing.JFrame;
  */
 public class Game {
 
-    private static Color c = new Color(0, 0, 0);
     private static Room room0, room1, room2, room3, room4, room5,
             room6, room7, room8, room9, room10, room11, room12, room13,
             room14, room15, room16, room17, room18, room19, room20, room21, room22, room23,
-            room24, room25, room26, room27, room28, room29, room30,FINALROOM;
+            room24, room25, room26, room27, room28, room29, room30,FINALROOM,menu;
     private ProjectObject sword;
     private static JFrame inventory = new InventoryForm();
 
@@ -31,7 +24,9 @@ public class Game {
         // TODO code application logic here
         //setThisGame(thisGame);
         getInventory().setInventoryform(inventory);
-        room0 = new Room(0, new Room0(), "/images/11.jpg", "casa", new Room0().backscreen);
+        menu = new Room(31, new Menu(), "/images/menu.jpg", "menu", new Menu().jLabel1);
+        
+        room0 = new Room(0, new Room0(), "/images/11.jpg", "casa", new Room0().sfondo);
         
         room1 = new Room(1, new Room1(), "/images/scalinata.jpg", "scalinata", new Room1().background);
         
@@ -126,11 +121,32 @@ public class Game {
         getRooms().add(room29);
         getRooms().add(room30);
         getRooms().add(FINALROOM);
-        room0.setWest(room2);
-        //room0.setSouth(room2);
-        room2.setSouth(room3);
-        room3.setSouth(room1);
-        //Mappa Leo
+        getRooms().add(menu);
+        menu.setNorth(room0);
+        room0.setWest(room1);
+        room0.setEast(room3);
+        room1.setSouth(room2);
+        room1.setEast(room0);
+        room2.setNorth(room1);
+        room3.setNorth(room4);
+        room4.setWest(room5);
+        room4.setNorth(room6);
+        room5.setWest(room7);
+        room6.setSouth(room4);
+        room5.setEast(room4);
+        room7.setEast(room5);
+        room6.setNorth(room8);
+        room8.setEast(room9);
+        room8.setNorth(room10);
+        room9.setWest(room8);
+        room10.setSouth(room8);
+        room10.setNorth(room11);
+        room11.setSouth(room10);
+        room11.setNorth(room12);
+        room12.setNorth(room13);
+        room13.setNorth(room14);
+        room14.setNorth(room15);
+        room15.setNorth(room16);
         room16.setWest(room17);
         room17.setEast(room16);
         room17.setWest(room18);
@@ -157,7 +173,7 @@ public class Game {
         room28.setSouth(room26);
         room29.setNorth(room26);
         room30.setNorth(FINALROOM);
-        room16.getThisRoom().setVisible(true);
+        menu.getThisRoom().setVisible(true);
 
     }
 }

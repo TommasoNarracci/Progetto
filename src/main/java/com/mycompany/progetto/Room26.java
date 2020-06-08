@@ -24,11 +24,11 @@ public class Room26 extends javax.swing.JFrame {
 
     public Room26() {
         initComponents();
-        key1 = new ProjectObject(7, "chiavesx");
-        key2 = new ProjectObject(8, "chiavedx");
+        key1 = new ProjectObject(17, "chiavesx");
+        key2 = new ProjectObject(18, "chiavedx");
         this.addWindowListener(l);
     }
-  WindowListener l = new WindowListener() {
+    WindowListener l = new WindowListener() {
         @Override
         public void windowOpened(WindowEvent arg0) {
             text.setText("3 porte come le 3 serrature della porta magica con quell'occhio inquietante...sarà una coincidenza?");
@@ -65,7 +65,6 @@ public class Room26 extends javax.swing.JFrame {
         public void windowDeactivated(WindowEvent arg0) {
         }
     };
-  
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -89,7 +88,7 @@ public class Room26 extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         text.setBackground(new java.awt.Color(0, 0, 0));
-        text.setFont(new java.awt.Font("Papyrus", 3, 14)); // NOI18N
+        text.setFont(new java.awt.Font("Papyrus", 3, 18)); // NOI18N
         text.setForeground(new java.awt.Color(255, 255, 255));
         text.setOpaque(true);
         getContentPane().add(text, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 680, 1080, 40));
@@ -189,13 +188,13 @@ public class Room26 extends javax.swing.JFrame {
             timer.setRepeats(false);
             timer.start();
         }
-    
+
     }//GEN-LAST:event_eastActionPerformed
 
-/**
- * @param args the command line arguments
- */
-public static void main(String args[]) {
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -207,30 +206,20 @@ public static void main(String args[]) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
 
-}
+                }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Room26.class  
-
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-
-catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Room26.class  
-
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-
-catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Room26.class  
-
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-
-catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Room26.class  
-
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Room26.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Room26.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Room26.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Room26.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -241,7 +230,7 @@ catch (javax.swing.UnsupportedLookAndFeelException ex) {
                 new Room26().setVisible(true);
             }
         });
-        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton east;

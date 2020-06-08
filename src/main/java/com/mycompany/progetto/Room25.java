@@ -24,9 +24,9 @@ public class Room25 extends javax.swing.JFrame {
 
     public Room25() {
         initComponents();
-        key1 = new ProjectObject(7, "chiave sx");
-        key2 = new ProjectObject(8, "chiave dx");
-        key3 = new ProjectObject(9, "chiave middle");
+        key1 = new ProjectObject(17, "chiave sx");
+        key2 = new ProjectObject(18, "chiave dx");
+        key3 = new ProjectObject(19, "chiave middle");
         this.addWindowListener(l);
     }
     WindowListener l = new WindowListener() {
@@ -88,7 +88,7 @@ public class Room25 extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         text.setBackground(new java.awt.Color(0, 0, 0));
-        text.setFont(new java.awt.Font("Papyrus", 3, 14)); // NOI18N
+        text.setFont(new java.awt.Font("Papyrus", 3, 18)); // NOI18N
         text.setForeground(new java.awt.Color(255, 255, 255));
         text.setOpaque(true);
         getContentPane().add(text, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 680, 1080, 40));

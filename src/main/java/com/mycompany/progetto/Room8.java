@@ -5,6 +5,20 @@
  */
 package com.mycompany.progetto;
 
+import static com.mycompany.progetto.ProjectGameDescription.getInventory;
+import static com.mycompany.progetto.ProjectGameDescription.getRooms;
+import static com.mycompany.progetto.Commands.*;
+import java.awt.Image;
+import java.awt.event.WindowListener;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.Timer;
+import static com.mycompany.progetto.Inventory.*;
+import java.awt.event.WindowEvent;
+import java.util.List;
+import javax.swing.JFrame;
+import javax.swing.SwingWorker;
+
 /**
  *
  * @author MSIGaming
@@ -16,7 +30,48 @@ public class Room8 extends javax.swing.JFrame {
      */
     public Room8() {
         initComponents();
+        luogo.setText("Bosco abbandonato");
+        this.addWindowListener(l);
     }
+    WindowListener l = new WindowListener() {
+        @Override
+        public void windowOpened(WindowEvent arg0) {
+
+            text.setText("Da qui sono passati dei cavalli,probabilmente da Gondor");
+            Timer timer = new Timer(5000, event -> {
+                text.setText("");
+            });
+            timer.setRepeats(false);
+            timer.start();
+
+        }
+
+        @Override
+        public void windowClosing(WindowEvent arg0) {
+
+        }
+
+        @Override
+        public void windowClosed(WindowEvent arg0) {
+        }
+
+        @Override
+        public void windowIconified(WindowEvent arg0) {
+
+        }
+
+        @Override
+        public void windowDeiconified(WindowEvent arg0) {
+        }
+
+        @Override
+        public void windowActivated(WindowEvent arg0) {
+        }
+
+        @Override
+        public void windowDeactivated(WindowEvent arg0) {
+        }
+    };
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -27,37 +82,80 @@ public class Room8 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        luogo = new javax.swing.JLabel();
+        north = new javax.swing.JButton();
+        inventario = new javax.swing.JButton();
+        east = new javax.swing.JButton();
+        text = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/NORD.png"))); // NOI18N
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.setFocusPainted(false);
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, -1, -1));
+        luogo.setBackground(new java.awt.Color(0, 0, 0));
+        luogo.setFont(new java.awt.Font("Papyrus", 3, 24)); // NOI18N
+        luogo.setForeground(new java.awt.Color(255, 255, 255));
+        luogo.setOpaque(true);
+        getContentPane().add(luogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 240, 60));
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/inventario.png"))); // NOI18N
-        jButton2.setBorderPainted(false);
-        jButton2.setContentAreaFilled(false);
-        jButton2.setFocusPainted(false);
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 630, -1, -1));
+        north.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/NORD.png"))); // NOI18N
+        north.setBorderPainted(false);
+        north.setContentAreaFilled(false);
+        north.setFocusPainted(false);
+        north.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                northActionPerformed(evt);
+            }
+        });
+        getContentPane().add(north, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, -1, -1));
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/EST.png"))); // NOI18N
-        jButton3.setBorderPainted(false);
-        jButton3.setContentAreaFilled(false);
-        jButton3.setFocusPainted(false);
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 330, -1, -1));
+        inventario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/inventario.png"))); // NOI18N
+        inventario.setBorderPainted(false);
+        inventario.setContentAreaFilled(false);
+        inventario.setFocusPainted(false);
+        inventario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inventarioActionPerformed(evt);
+            }
+        });
+        getContentPane().add(inventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 590, -1, -1));
+
+        east.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/EST.png"))); // NOI18N
+        east.setBorderPainted(false);
+        east.setContentAreaFilled(false);
+        east.setFocusPainted(false);
+        east.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eastActionPerformed(evt);
+            }
+        });
+        getContentPane().add(east, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 330, -1, -1));
+
+        text.setBackground(new java.awt.Color(0, 0, 0));
+        text.setFont(new java.awt.Font("Papyrus", 3, 24)); // NOI18N
+        text.setForeground(new java.awt.Color(255, 255, 255));
+        text.setOpaque(true);
+        text.setPreferredSize(new java.awt.Dimension(1080, 40));
+        getContentPane().add(text, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 680, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/incrocio.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 720));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void inventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventarioActionPerformed
+        // TODO add your handling code here:
+        openInventory();
+    }//GEN-LAST:event_inventarioActionPerformed
+
+    private void eastActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eastActionPerformed
+        goEast(this);
+    }//GEN-LAST:event_eastActionPerformed
+
+    private void northActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_northActionPerformed
+        goNorth(this);
+    }//GEN-LAST:event_northActionPerformed
 
     /**
      * @param args the command line arguments
@@ -96,9 +194,11 @@ public class Room8 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton east;
+    private javax.swing.JButton inventario;
     public javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel luogo;
+    private javax.swing.JButton north;
+    private javax.swing.JLabel text;
     // End of variables declaration//GEN-END:variables
 }

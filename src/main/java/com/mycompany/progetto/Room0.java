@@ -5,12 +5,13 @@
  */
 package com.mycompany.progetto;
 
-import static com.mycompany.progetto.ProjectGameDescription.getInventory;
-import static com.mycompany.progetto.ProjectGameDescription.getRooms;
 import static com.mycompany.progetto.Commands.*;
-import java.awt.Image;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
+import java.awt.event.WindowListener;
+import javax.swing.Timer;
+import static com.mycompany.progetto.Inventory.*;
+import java.awt.event.WindowEvent;
+import java.util.List;
+import javax.swing.SwingWorker;
 
 /**
  *
@@ -21,15 +22,75 @@ public class Room0 extends javax.swing.JFrame {
     /**
      * Creates new form Room1
      */
-    
+    ProjectObject chiave, doorinizio;
+
+    WindowListener l = new WindowListener() {
+        @Override
+        public void windowOpened(WindowEvent arg0) {
+
+            SwingWorker<Void, String> worker = new SwingWorker<Void, String>() {
+
+                @Override
+                protected Void doInBackground() throws Exception {
+                    this.publish("Dopo una serata di festeggiamenti ti ritrovi in questa casa sconosciuta");
+                    Thread.sleep(3000);
+                    this.publish("Il tuo nome è Bilbo Beggins e sei un Hobbit");
+                    Thread.sleep(3000);
+                    this.publish("Ieri sera hai parlato con Gandalf ma non ti ricordi quasi niente ");
+                    Thread.sleep(3000);
+                    this.publish("Ti ricordi solo che ti ha parlato di un anello");
+                    Thread.sleep(3000);
+                    this.publish("");
+                    return null;
+                }
+
+                @Override
+                protected void process(List<String> res) {
+                    for (String thistext : res) {
+                        text.setText(thistext);
+                    }
+                }
+
+            };
+
+            worker.execute();
+
+        }
+
+        @Override
+        public void windowClosing(WindowEvent arg0) {
+
+        }
+
+        @Override
+        public void windowClosed(WindowEvent arg0) {
+        }
+
+        @Override
+        public void windowIconified(WindowEvent arg0) {
+
+        }
+
+        @Override
+        public void windowDeiconified(WindowEvent arg0) {
+        }
+
+        @Override
+        public void windowActivated(WindowEvent arg0) {
+        }
+
+        @Override
+        public void windowDeactivated(WindowEvent arg0) {
+        }
+    };
+
     public Room0() {
         initComponents();
-        
-     
-        
-        //room = new Room(1,this,"C:\\Users\\Utente\\Downloads\\imgproject\\CAVE22.jpg","Caverna",backscreen);
-        //room2 = new Room(2,new Room2(),"Boh");
-        //room.setNorth(room2);
+        luogo.setText(" Stanza Principale");
+        this.addWindowListener(l);
+        chiave = new ProjectObject(0, "chiave");
+        doorinizio = new ProjectObject(1, "door", "/images/iniziodoor.png", porta, this, 0, 1);
+
     }
 
     /**
@@ -41,75 +102,109 @@ public class Room0 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        backscreen = new javax.swing.JLabel();
+        luogo = new javax.swing.JLabel();
+        avanti = new javax.swing.JButton();
+        inventario = new javax.swing.JButton();
+        porta = new javax.swing.JButton();
+        text = new javax.swing.JLabel();
+        sfondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("GIOCOMAP");
+        setTitle("Lo Hobbit");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setName("GIOCOMAP"); // NOI18N
         setSize(new java.awt.Dimension(1080, 720));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/NORD.png"))); // NOI18N
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.setFocusPainted(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        luogo.setBackground(new java.awt.Color(0, 0, 0));
+        luogo.setFont(new java.awt.Font("Papyrus", 3, 24)); // NOI18N
+        luogo.setForeground(new java.awt.Color(255, 255, 255));
+        luogo.setOpaque(true);
+        luogo.setPreferredSize(new java.awt.Dimension(168, 168));
+        getContentPane().add(luogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 240, 60));
+
+        avanti.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/CHIUSO.png"))); // NOI18N
+        avanti.setBorderPainted(false);
+        avanti.setContentAreaFilled(false);
+        avanti.setFocusPainted(false);
+        avanti.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                avantiActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 350, -1, -1));
+        getContentPane().add(avanti, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 350, -1, -1));
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/inventario.png"))); // NOI18N
-        jButton2.setBorderPainted(false);
-        jButton2.setContentAreaFilled(false);
-        jButton2.setFocusPainted(false);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        inventario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/inventario.png"))); // NOI18N
+        inventario.setBorderPainted(false);
+        inventario.setContentAreaFilled(false);
+        inventario.setFocusPainted(false);
+        inventario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                inventarioActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 630, -1, -1));
+        getContentPane().add(inventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 590, -1, -1));
 
-        jButton3.setToolTipText("door");
-        jButton3.setBorderPainted(false);
-        jButton3.setContentAreaFilled(false);
-        jButton3.setFocusPainted(false);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        porta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iniziodoor.png"))); // NOI18N
+        porta.setToolTipText("door");
+        porta.setBorderPainted(false);
+        porta.setContentAreaFilled(false);
+        porta.setFocusPainted(false);
+        porta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                portaActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 200, 70, 410));
+        getContentPane().add(porta, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 130, 150, 510));
 
-        backscreen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/11.jpg"))); // NOI18N
-        getContentPane().add(backscreen, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 720));
+        text.setBackground(new java.awt.Color(0, 0, 0));
+        text.setFont(new java.awt.Font("Papyrus", 3, 18)); // NOI18N
+        text.setForeground(new java.awt.Color(255, 255, 255));
+        text.setOpaque(true);
+        text.setPreferredSize(new java.awt.Dimension(1080, 40));
+        getContentPane().add(text, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 680, -1, -1));
+
+        sfondo.setFont(new java.awt.Font("Papyrus", 0, 18)); // NOI18N
+        sfondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/11.jpg"))); // NOI18N
+        getContentPane().add(sfondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 720));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void avantiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avantiActionPerformed
         // TODO add your handling code here:
-        goNorth(this);
+        goWest(this);
         //getThisGame().getmyRoom(0).getNorth().getThisRoom().setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_avantiActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void inventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventarioActionPerformed
         // TODO add your handling code here:
-        getInventory().refreshInventory();
-        getInventory().getInventoryform().setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
+        openInventory();
+    }//GEN-LAST:event_inventarioActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void portaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_portaActionPerformed
         // TODO add your handling code here:
-        getRooms().get(0).getWest().getThisRoom().setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jButton3ActionPerformed
+        if (findObject(chiave) >= 0 || doorinizio.isEnable() == 1) {
+
+            if (findObject(chiave) >= 0) {
+                doorinizio.setEnable(1);
+                removeObject(chiave);
+            }
+
+            goEast(this);
+
+        } else {
+            text.setText("Non hai la chiave ");
+            Timer timer = new Timer(3000, event -> {
+                text.setText("");
+            });
+            timer.setRepeats(false);
+            timer.start();
+        }
+
+
+    }//GEN-LAST:event_portaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -150,9 +245,11 @@ public class Room0 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JLabel backscreen;
-    public javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    public javax.swing.JButton avanti;
+    private javax.swing.JButton inventario;
+    private javax.swing.JLabel luogo;
+    private javax.swing.JButton porta;
+    public javax.swing.JLabel sfondo;
+    private javax.swing.JLabel text;
     // End of variables declaration//GEN-END:variables
 }

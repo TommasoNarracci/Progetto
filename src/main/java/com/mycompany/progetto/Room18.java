@@ -82,6 +82,7 @@ public class Room18 extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         text.setBackground(new java.awt.Color(0, 0, 0));
+        text.setFont(new java.awt.Font("Papyrus", 3, 18)); // NOI18N
         text.setForeground(new java.awt.Color(255, 255, 255));
         text.setOpaque(true);
         getContentPane().add(text, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 680, 1080, 40));

@@ -9,11 +9,7 @@ import static com.mycompany.progetto.Commands.*;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.SwingWorker;
-import javax.swing.Timer;
 
 /**
  *
@@ -31,7 +27,6 @@ public class Room21 extends javax.swing.JFrame {
     WindowListener l = new WindowListener() {
         @Override
         public void windowOpened(WindowEvent arg0) {
-
 
             SwingWorker<Void, String> worker = new SwingWorker<Void, String>() {
 
@@ -108,7 +103,7 @@ public class Room21 extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         text.setBackground(new java.awt.Color(0, 0, 0));
-        text.setFont(new java.awt.Font("Papyrus", 3, 14)); // NOI18N
+        text.setFont(new java.awt.Font("Papyrus", 3, 18)); // NOI18N
         text.setForeground(new java.awt.Color(255, 255, 255));
         text.setOpaque(true);
         getContentPane().add(text, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 680, 1080, 40));

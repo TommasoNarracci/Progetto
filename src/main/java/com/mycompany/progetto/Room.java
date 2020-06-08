@@ -7,7 +7,6 @@ package com.mycompany.progetto;
 
 import java.awt.Dimension;
 import java.awt.Image;
-import java.awt.Toolkit;
 import javax.swing.*;
 
 /**
@@ -24,7 +23,8 @@ public class Room {
     private Room north;
     private Room south;
     private Room east;
-    private Room west;   
+    private Room west;
+
     public Room() {
         this.id = -1;
     }
@@ -39,6 +39,7 @@ public class Room {
         this.thisRoom = thisRoom;
         this.name = name;
     }
+
     public Room(int id, JFrame thisRoom, String background, String name, JLabel label) {
         this.id = id;
         this.thisRoom = thisRoom;
@@ -48,13 +49,11 @@ public class Room {
         setWindow(background, label);
 
     }
-    
 
     public int getId() {
         return id;
     }
 
- 
     public JFrame getThisRoom() {
         return thisRoom;
     }
@@ -108,7 +107,7 @@ public class Room {
     }
 
     public final void setWindow(String backg, JLabel label) {
-        Dimension window = new Dimension(1080,720);
+        Dimension window = new Dimension(1080, 720);
         thisRoom.setSize(window);
         thisRoom.setResizable(false);
         ImageIcon icon = new ImageIcon(backg);
@@ -118,7 +117,7 @@ public class Room {
         label.setIcon(scaledIcon);
         thisRoom.pack();
         thisRoom.setLocationRelativeTo(null);
-        
+
     }
 
     public boolean equals(JFrame thisRoom) {

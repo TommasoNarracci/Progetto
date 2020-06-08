@@ -25,9 +25,9 @@ public class Room28 extends javax.swing.JFrame {
     public Room28() {
         initComponents();
         key1.setVisible(false);
-        picklock = new ProjectObject(6, "grimaldello");
-        thiskey1 = new ProjectObject(7, "chiaveSX", "/images/mordorkey.jpg", key1, this);
-        thiskey2 = new ProjectObject(8, "chiaveDX");
+        picklock = new ProjectObject(16, "grimaldello");
+        thiskey1 = new ProjectObject(17, "chiaveSX", "/images/mordorkey.jpg", key1, this);
+        thiskey2 = new ProjectObject(18, "chiaveDX");
         this.addWindowListener(l);
     }
     WindowListener l = new WindowListener() {
@@ -89,7 +89,7 @@ public class Room28 extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         text.setBackground(new java.awt.Color(0, 0, 0));
-        text.setFont(new java.awt.Font("Papyrus", 3, 14)); // NOI18N
+        text.setFont(new java.awt.Font("Papyrus", 3, 18)); // NOI18N
         text.setForeground(new java.awt.Color(255, 255, 255));
         text.setOpaque(true);
         getContentPane().add(text, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 680, 1080, 40));

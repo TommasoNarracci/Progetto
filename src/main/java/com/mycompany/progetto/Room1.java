@@ -5,9 +5,10 @@
  */
 package com.mycompany.progetto;
 
-import java.awt.Dimension;
-import java.awt.Image;
-import javax.swing.ImageIcon;
+import static com.mycompany.progetto.Commands.*;
+import java.awt.event.WindowListener;
+import javax.swing.Timer;
+import java.awt.event.WindowEvent;
 
 /**
  *
@@ -20,8 +21,48 @@ public class Room1 extends javax.swing.JFrame {
      */
     public Room1() {
         initComponents();
-        
+        luogo.setText(" Scalinata");
+        this.addWindowListener(l);
     }
+    WindowListener l = new WindowListener() {
+        @Override
+        public void windowOpened(WindowEvent arg0) {
+
+            text.setText("Una scalinata che porta al seminterrato...chissà se ci sarà del cibo!");
+            Timer timer = new Timer(3000, event -> {
+                text.setText("");
+            });
+            timer.setRepeats(false);
+            timer.start();
+
+        }
+
+        @Override
+        public void windowClosing(WindowEvent arg0) {
+
+        }
+
+        @Override
+        public void windowClosed(WindowEvent arg0) {
+        }
+
+        @Override
+        public void windowIconified(WindowEvent arg0) {
+
+        }
+
+        @Override
+        public void windowDeiconified(WindowEvent arg0) {
+        }
+
+        @Override
+        public void windowActivated(WindowEvent arg0) {
+        }
+
+        @Override
+        public void windowDeactivated(WindowEvent arg0) {
+        }
+    };
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -32,8 +73,11 @@ public class Room1 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        luogo = new javax.swing.JLabel();
+        sud = new javax.swing.JButton();
+        inventario = new javax.swing.JButton();
+        indietro = new javax.swing.JButton();
+        text = new javax.swing.JLabel();
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -43,22 +87,52 @@ public class Room1 extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(1080, 720));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/NORD.png"))); // NOI18N
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.setFocusPainted(false);
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 230, -1, -1));
+        luogo.setBackground(new java.awt.Color(0, 0, 0));
+        luogo.setFont(new java.awt.Font("Papyrus", 3, 24)); // NOI18N
+        luogo.setForeground(new java.awt.Color(255, 255, 255));
+        luogo.setOpaque(true);
+        luogo.setPreferredSize(new java.awt.Dimension(168, 168));
+        getContentPane().add(luogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 240, 60));
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/inventario.png"))); // NOI18N
-        jButton2.setBorderPainted(false);
-        jButton2.setContentAreaFilled(false);
-        jButton2.setFocusPainted(false);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        sud.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/SUD.png"))); // NOI18N
+        sud.setBorderPainted(false);
+        sud.setContentAreaFilled(false);
+        sud.setFocusPainted(false);
+        sud.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                sudActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 600, -1, -1));
+        getContentPane().add(sud, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 230, -1, -1));
+
+        inventario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/inventario.png"))); // NOI18N
+        inventario.setBorderPainted(false);
+        inventario.setContentAreaFilled(false);
+        inventario.setFocusPainted(false);
+        inventario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inventarioActionPerformed(evt);
+            }
+        });
+        getContentPane().add(inventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 590, -1, -1));
+
+        indietro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/CHIUSO.png"))); // NOI18N
+        indietro.setBorderPainted(false);
+        indietro.setContentAreaFilled(false);
+        indietro.setFocusPainted(false);
+        indietro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                indietroActionPerformed(evt);
+            }
+        });
+        getContentPane().add(indietro, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 540, -1, -1));
+
+        text.setBackground(new java.awt.Color(0, 0, 0));
+        text.setFont(new java.awt.Font("Papyrus", 3, 18)); // NOI18N
+        text.setForeground(new java.awt.Color(255, 255, 255));
+        text.setOpaque(true);
+        text.setPreferredSize(new java.awt.Dimension(1080, 40));
+        getContentPane().add(text, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 680, -1, -1));
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/scalinata.jpg"))); // NOI18N
         getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 720));
@@ -66,9 +140,19 @@ public class Room1 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void inventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+        openInventory();
+    }//GEN-LAST:event_inventarioActionPerformed
+
+    private void indietroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_indietroActionPerformed
+        // TODO add your handling code here:
+        goEast(this);
+    }//GEN-LAST:event_indietroActionPerformed
+
+    private void sudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sudActionPerformed
+        goSouth(this);
+    }//GEN-LAST:event_sudActionPerformed
 
     /**
      * @param args the command line arguments
@@ -110,7 +194,10 @@ public class Room1 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JLabel background;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton indietro;
+    private javax.swing.JButton inventario;
+    private javax.swing.JLabel luogo;
+    private javax.swing.JButton sud;
+    private javax.swing.JLabel text;
     // End of variables declaration//GEN-END:variables
 }

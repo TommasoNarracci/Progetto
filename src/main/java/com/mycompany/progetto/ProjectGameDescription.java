@@ -23,12 +23,11 @@ public class ProjectGameDescription {
     public static List<Room> getRooms() {
         return rooms;
     }
-    
+
 
     /*public List<AdvObject> getInventory() {
         return inventory;
     }*/
-
     public static Inventory getInventory() {
         return inventory;
     }

@@ -5,10 +5,9 @@
  */
 package com.mycompany.progetto;
 
-import javax.swing.JButton;
-import static com.mycompany.progetto.Inventory.*; 
 import static com.mycompany.progetto.ProjectGameDescription.getInventory;
 import java.awt.Dimension;
+
 /**
  *
  * @author Utente
@@ -20,13 +19,12 @@ public class InventoryForm extends javax.swing.JFrame {
      */
     public InventoryForm() {
         initComponents();
-        Dimension inventoryWindow= new Dimension(412,197);
-        this.setLocationRelativeTo(null); 
+        Dimension inventoryWindow = new Dimension(412, 197);
+        this.setLocationRelativeTo(null);
         this.setSize(inventoryWindow);
         this.setResizable(false);
         getInventory().setBackground(jLabel1);
     }
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -48,8 +46,7 @@ public class InventoryForm extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
-    
+
     /**
      * @param args the command line arguments
      */

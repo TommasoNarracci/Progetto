@@ -20,16 +20,17 @@ public class Room22 extends javax.swing.JFrame {
     /**
      * Creates new form Room22
      */
-    ProjectObject gem,lotr,est;
+    ProjectObject gem, lotr, est;
     int ringactivated;
+
     public Room22() {
         initComponents();
-        est = new ProjectObject(0,"est","/images/EST.png",east,this,0,1);
-        gem = new ProjectObject(4, "archengemma");
-        lotr = new ProjectObject(5, "usa anello","/images/ring.jpg",ring,this);
+        est = new ProjectObject(14, "est", "/images/EST.png", east, this, 0, 1);
+        gem = new ProjectObject(15, "archengemma");
+        lotr = new ProjectObject(11, "usa anello", "/images/ring.jpg", ring, this);
         this.addWindowListener(l);
     }
-WindowListener l = new WindowListener() {
+    WindowListener l = new WindowListener() {
         @Override
         public void windowOpened(WindowEvent arg0) {
             text.setText("SMAUG:'Oro,oro,ORO!!!...aspetta,cos'è quest'odore di uomo?");
@@ -42,7 +43,7 @@ WindowListener l = new WindowListener() {
 
         @Override
         public void windowClosing(WindowEvent arg0) {
-           
+
         }
 
         @Override
@@ -51,7 +52,7 @@ WindowListener l = new WindowListener() {
 
         @Override
         public void windowIconified(WindowEvent arg0) {
-           
+
         }
 
         @Override
@@ -66,6 +67,7 @@ WindowListener l = new WindowListener() {
         public void windowDeactivated(WindowEvent arg0) {
         }
     };
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -91,7 +93,7 @@ WindowListener l = new WindowListener() {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         text.setBackground(new java.awt.Color(0, 0, 0));
-        text.setFont(new java.awt.Font("Papyrus", 3, 14)); // NOI18N
+        text.setFont(new java.awt.Font("Papyrus", 3, 18)); // NOI18N
         text.setForeground(new java.awt.Color(255, 255, 255));
         text.setOpaque(true);
         getContentPane().add(text, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 640, 1080, 40));
@@ -159,9 +161,9 @@ WindowListener l = new WindowListener() {
 
     private void eastActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eastActionPerformed
         // TODO add your handling code here:
-        if(est.isEnable() == 1){
-        goEast(this);
-        }else{
+        if (est.isEnable() == 1) {
+            goEast(this);
+        } else {
             text.setText("E' troppo rischioso,il drago ti vedrà!Ci sarà pure un modo per passare...");
             Timer timer = new Timer(3000, event -> {
                 text.setText("");
@@ -187,14 +189,14 @@ WindowListener l = new WindowListener() {
 
     private void ringActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ringActionPerformed
         // TODO add your handling code here:
-            est.setEnable(1);
-            text.setText("Hai attivato l'anello,ora sei invisibile!");
-            Timer timer = new Timer(3000, event -> {
-                text.setText("");
-            });
-            timer.setRepeats(false);
-            timer.start();
-            ring.setVisible(false);
+        est.setEnable(1);
+        text.setText("Hai attivato l'anello,ora sei invisibile!");
+        Timer timer = new Timer(3000, event -> {
+            text.setText("");
+        });
+        timer.setRepeats(false);
+        timer.start();
+        ring.setVisible(false);
     }//GEN-LAST:event_ringActionPerformed
 
     /**

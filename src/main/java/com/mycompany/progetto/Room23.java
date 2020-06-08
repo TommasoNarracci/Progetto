@@ -4,10 +4,12 @@
  * and open the template in the editor.
  */
 package com.mycompany.progetto;
+
 import static com.mycompany.progetto.Commands.*;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import javax.swing.Timer;
+
 /**
  *
  * @author MSIGaming
@@ -18,12 +20,13 @@ public class Room23 extends javax.swing.JFrame {
      * Creates new form Room23
      */
     ProjectObject arkengem;
+
     public Room23() {
         initComponents();
-        arkengem = new ProjectObject(4,"Arkengemma","/images/gemma.png",gem,this);
+        arkengem = new ProjectObject(15, "Arkengemma", "/images/gemma.png", gem, this);
         this.addWindowListener(l);
     }
-WindowListener l = new WindowListener() {
+    WindowListener l = new WindowListener() {
         @Override
         public void windowOpened(WindowEvent arg0) {
             text.setText("Qui sei salvo...aspetta,cos'è questa luce proveniente delle montagne di oro?");
@@ -36,7 +39,7 @@ WindowListener l = new WindowListener() {
 
         @Override
         public void windowClosing(WindowEvent arg0) {
-           
+
         }
 
         @Override
@@ -45,7 +48,7 @@ WindowListener l = new WindowListener() {
 
         @Override
         public void windowIconified(WindowEvent arg0) {
-           
+
         }
 
         @Override
@@ -60,6 +63,7 @@ WindowListener l = new WindowListener() {
         public void windowDeactivated(WindowEvent arg0) {
         }
     };
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -80,7 +84,7 @@ WindowListener l = new WindowListener() {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         text.setBackground(new java.awt.Color(0, 0, 0));
-        text.setFont(new java.awt.Font("Papyrus", 3, 14)); // NOI18N
+        text.setFont(new java.awt.Font("Papyrus", 3, 18)); // NOI18N
         text.setForeground(new java.awt.Color(255, 255, 255));
         text.setOpaque(true);
         getContentPane().add(text, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 680, 1080, 40));
@@ -140,12 +144,12 @@ WindowListener l = new WindowListener() {
     private void gemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gemActionPerformed
         // TODO add your handling code here:
         PickObject(arkengem);
-                     text.setText("Ecco la fantastica Arkengemma!");
-            Timer timer = new Timer(3000, event -> {
-                text.setText("");
-            });
-            timer.setRepeats(false);
-            timer.start();
+        text.setText("Ecco la fantastica Arkengemma!");
+        Timer timer = new Timer(3000, event -> {
+            text.setText("");
+        });
+        timer.setRepeats(false);
+        timer.start();
     }//GEN-LAST:event_gemActionPerformed
 
     private void inventoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventoryActionPerformed

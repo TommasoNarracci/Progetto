@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package com.mycompany.progetto;
+
 import static com.mycompany.progetto.Commands.*;
 import static com.mycompany.progetto.Inventory.*;
 import java.awt.event.WindowEvent;
@@ -11,6 +12,7 @@ import java.awt.event.WindowListener;
 import java.util.List;
 import javax.swing.SwingWorker;
 import javax.swing.Timer;
+
 /**
  *
  * @author MSIGaming
@@ -20,20 +22,20 @@ public class Room24 extends javax.swing.JFrame {
     /**
      * Creates new form Room24
      */
-    private ProjectObject bow,picklock,gem,arsword;
+    private ProjectObject picklock, gem, arsword;
+
     public Room24() {
         initComponents();
         grimaldello.setVisible(false);
-        bow = new ProjectObject(0,"arco elfico","/images/legolas.png",arco,this);
-        gem = new ProjectObject(4,"arkengemma");
-        picklock = new ProjectObject(6,"grimaldello","/images/grimaldello.png",grimaldello,this);
-        arsword = new ProjectObject(10,"spada aragorn","/images/swordarag.png",aragornsw,this);
+
+        gem = new ProjectObject(15, "arkengemma");
+        picklock = new ProjectObject(16, "grimaldello", "/images/grimaldello.png", grimaldello, this);
+
         this.addWindowListener(l);
     }
-WindowListener l = new WindowListener() {
+    WindowListener l = new WindowListener() {
         @Override
         public void windowOpened(WindowEvent arg0) {
-
 
             SwingWorker<Void, String> worker = new SwingWorker<Void, String>() {
 
@@ -92,6 +94,7 @@ WindowListener l = new WindowListener() {
         public void windowDeactivated(WindowEvent arg0) {
         }
     };
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -106,15 +109,13 @@ WindowListener l = new WindowListener() {
         inventory = new javax.swing.JButton();
         north = new javax.swing.JButton();
         grimaldello = new javax.swing.JButton();
-        aragornsw = new javax.swing.JButton();
-        arco = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         text.setBackground(new java.awt.Color(0, 0, 0));
-        text.setFont(new java.awt.Font("Papyrus", 3, 14)); // NOI18N
+        text.setFont(new java.awt.Font("Papyrus", 3, 18)); // NOI18N
         text.setForeground(new java.awt.Color(255, 255, 255));
         text.setOpaque(true);
         getContentPane().add(text, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 680, 1080, 40));
@@ -155,27 +156,7 @@ WindowListener l = new WindowListener() {
                 grimaldelloActionPerformed(evt);
             }
         });
-        getContentPane().add(grimaldello, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 360, 70, 90));
-
-        aragornsw.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/swordarag.png"))); // NOI18N
-        aragornsw.setBorderPainted(false);
-        aragornsw.setContentAreaFilled(false);
-        aragornsw.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                aragornswActionPerformed(evt);
-            }
-        });
-        getContentPane().add(aragornsw, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 60, 100));
-
-        arco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/legolas.png"))); // NOI18N
-        arco.setBorderPainted(false);
-        arco.setContentAreaFilled(false);
-        arco.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                arcoActionPerformed(evt);
-            }
-        });
-        getContentPane().add(arco, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, -1, -1));
+        getContentPane().add(grimaldello, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 320, 70, 180));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Falò.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 720));
@@ -196,10 +177,9 @@ WindowListener l = new WindowListener() {
 
     private void northActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_northActionPerformed
         // TODO add your handling code here:
-        if(findObject(picklock)>=0){
+        if (findObject(picklock) >= 0) {
             goNorth(this);
-        }
-        else{
+        } else {
             text.setText("Su,non essere scortese,accetta il dono di THORIN!");
             Timer timer = new Timer(3000, event -> {
                 text.setText("");
@@ -208,16 +188,6 @@ WindowListener l = new WindowListener() {
             timer.start();
         }
     }//GEN-LAST:event_northActionPerformed
-
-    private void arcoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_arcoActionPerformed
-        // TODO add your handling code here:
-        PickObject(bow);
-    }//GEN-LAST:event_arcoActionPerformed
-
-    private void aragornswActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aragornswActionPerformed
-        // TODO add your handling code here:
-        PickObject(arsword);
-    }//GEN-LAST:event_aragornswActionPerformed
 
     /**
      * @param args the command line arguments
@@ -256,8 +226,6 @@ WindowListener l = new WindowListener() {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton aragornsw;
-    private javax.swing.JButton arco;
     private javax.swing.JButton grimaldello;
     private javax.swing.JButton inventory;
     public javax.swing.JLabel jLabel1;

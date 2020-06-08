@@ -4,13 +4,9 @@
  * and open the template in the editor.
  */
 package com.mycompany.progetto;
-import static com.mycompany.progetto.Inventory.*;
+
 import static com.mycompany.progetto.ProjectGameDescription.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JButton;
 import javax.swing.JFrame;
 
 /**
@@ -73,9 +69,7 @@ public class Commands {
         getInventory().add(obj);
     }
 
-    public static void removeObject(ProjectObject obj){
+    public static void removeObject(ProjectObject obj) {
         getInventory().remove(obj);
     }
-    }
-        
-
+}

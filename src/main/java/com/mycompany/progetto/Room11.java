@@ -5,6 +5,11 @@
  */
 package com.mycompany.progetto;
 
+import static com.mycompany.progetto.Commands.*;
+import java.awt.event.WindowListener;
+import javax.swing.Timer;
+import java.awt.event.WindowEvent;
+
 /**
  *
  * @author MSIGaming
@@ -16,7 +21,48 @@ public class Room11 extends javax.swing.JFrame {
      */
     public Room11() {
         initComponents();
+        luogo.setText("Rivendell");
+        this.addWindowListener(l);
     }
+    WindowListener l = new WindowListener() {
+        @Override
+        public void windowOpened(WindowEvent arg0) {
+
+            text.setText("Wow...questa è Rivendell...che posto incantevole!");
+            Timer timer = new Timer(5000, event -> {
+                text.setText("");
+            });
+            timer.setRepeats(false);
+            timer.start();
+
+        }
+
+        @Override
+        public void windowClosing(WindowEvent arg0) {
+
+        }
+
+        @Override
+        public void windowClosed(WindowEvent arg0) {
+        }
+
+        @Override
+        public void windowIconified(WindowEvent arg0) {
+
+        }
+
+        @Override
+        public void windowDeiconified(WindowEvent arg0) {
+        }
+
+        @Override
+        public void windowActivated(WindowEvent arg0) {
+        }
+
+        @Override
+        public void windowDeactivated(WindowEvent arg0) {
+        }
+    };
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -27,23 +73,79 @@ public class Room11 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        luogo = new javax.swing.JLabel();
+        inventario = new javax.swing.JButton();
+        nord = new javax.swing.JButton();
+        text = new javax.swing.JLabel();
+        indietro = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/CHIUSO.png"))); // NOI18N
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.setFocusPainted(false);
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 80, -1, -1));
+        luogo.setBackground(new java.awt.Color(0, 0, 0));
+        luogo.setFont(new java.awt.Font("Papyrus", 3, 24)); // NOI18N
+        luogo.setForeground(new java.awt.Color(255, 255, 255));
+        luogo.setOpaque(true);
+        getContentPane().add(luogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 240, 60));
+
+        inventario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/inventario.png"))); // NOI18N
+        inventario.setBorderPainted(false);
+        inventario.setContentAreaFilled(false);
+        inventario.setFocusPainted(false);
+        inventario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inventarioActionPerformed(evt);
+            }
+        });
+        getContentPane().add(inventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 590, -1, -1));
+
+        nord.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/NORD.png"))); // NOI18N
+        nord.setBorderPainted(false);
+        nord.setContentAreaFilled(false);
+        nord.setFocusPainted(false);
+        nord.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nordActionPerformed(evt);
+            }
+        });
+        getContentPane().add(nord, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 80, -1, -1));
+
+        text.setBackground(new java.awt.Color(0, 0, 0));
+        text.setFont(new java.awt.Font("Papyrus", 3, 18)); // NOI18N
+        text.setForeground(new java.awt.Color(255, 255, 255));
+        text.setOpaque(true);
+        text.setPreferredSize(new java.awt.Dimension(1080, 40));
+        getContentPane().add(text, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 680, -1, -1));
+
+        indietro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/CHIUSO.png"))); // NOI18N
+        indietro.setBorderPainted(false);
+        indietro.setContentAreaFilled(false);
+        indietro.setFocusPainted(false);
+        indietro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                indietroActionPerformed(evt);
+            }
+        });
+        getContentPane().add(indietro, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 540, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/rivendell.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 720));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void indietroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_indietroActionPerformed
+        goSouth(this);
+    }//GEN-LAST:event_indietroActionPerformed
+
+    private void inventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventarioActionPerformed
+        openInventory();
+    }//GEN-LAST:event_inventarioActionPerformed
+
+    private void nordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nordActionPerformed
+        goNorth(this);
+    }//GEN-LAST:event_nordActionPerformed
 
     /**
      * @param args the command line arguments
@@ -82,7 +184,11 @@ public class Room11 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton indietro;
+    private javax.swing.JButton inventario;
     public javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel luogo;
+    private javax.swing.JButton nord;
+    private javax.swing.JLabel text;
     // End of variables declaration//GEN-END:variables
 }

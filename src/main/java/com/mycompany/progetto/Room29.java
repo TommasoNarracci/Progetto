@@ -20,15 +20,15 @@ public class Room29 extends javax.swing.JFrame {
     /**
      * Creates new form Room29
      */
-    ProjectObject thiskey1, thiskey2,upperkey2, bow;
+    ProjectObject thiskey1, thiskey2, upperkey2, bow;
     int fallen = 0;
 
     public Room29() {
         initComponents();
-        bow = new ProjectObject(0, "arco");
-        upperkey2 = new ProjectObject(8, "chiaveDX", "/images/mordorkey.jpg", key2, this, 1);
-        thiskey2 = new ProjectObject(8, "chiaveDX", "/images/mordorkey.jpg", fallenkey2, this, 1);
-        thiskey1 = new ProjectObject(7, "chiaveSX");
+        bow = new ProjectObject(10, "arco");
+        upperkey2 = new ProjectObject(18, "chiaveDX", "/images/mordorkey.jpg", key2, this, 1);
+        thiskey2 = new ProjectObject(18, "chiaveDX", "/images/mordorkey.jpg", fallenkey2, this, 1);
+        thiskey1 = new ProjectObject(17, "chiaveSX");
         fallenkey2.setVisible(false);
         this.addWindowListener(l);
     }
@@ -92,7 +92,7 @@ public class Room29 extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         text.setBackground(new java.awt.Color(0, 0, 0));
-        text.setFont(new java.awt.Font("Papyrus", 3, 14)); // NOI18N
+        text.setFont(new java.awt.Font("Papyrus", 3, 18)); // NOI18N
         text.setForeground(new java.awt.Color(255, 255, 255));
         text.setOpaque(true);
         getContentPane().add(text, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 680, 1080, 40));

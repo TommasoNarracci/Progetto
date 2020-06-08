@@ -25,11 +25,12 @@ public class Room30 extends javax.swing.JFrame {
     ProjectObject thisring, thisringend, arsword;
     int ringactive = 0, hits = 0;
     JFrame thisroom;
+
     public Room30() {
         initComponents();
         thisroom = this;
-        thisring = new ProjectObject(2, "anello", "/images/ring.jpg", ring, this);
-        thisringend = new ProjectObject(2, "anello", "/images/ring.jpg", ringfinal, this);
+        thisring = new ProjectObject(11, "anello", "/images/ring.jpg", ring, this);
+        thisringend = new ProjectObject(11, "anello", "/images/ring.jpg", ringfinal, this);
         ringfinal.setVisible(false);
         this.addWindowListener(l);
     }
@@ -324,7 +325,7 @@ public class Room30 extends javax.swing.JFrame {
                     Thread.sleep(3000);
                     this.publish("");
                     goNorth(thisroom);
-                    
+
                     return null;
                 }
 
@@ -339,7 +340,7 @@ public class Room30 extends javax.swing.JFrame {
             worker.execute();
         }
         if (ringactive == 1) {
-            if (hits >2) {
+            if (hits > 2) {
                 SwingWorker<Void, String> worker = new SwingWorker<Void, String>() {
 
                     @Override

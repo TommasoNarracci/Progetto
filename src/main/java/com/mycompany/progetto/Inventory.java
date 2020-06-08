@@ -5,7 +5,6 @@
  */
 package com.mycompany.progetto;
 
-import static com.mycompany.progetto.Commands.*;
 import static com.mycompany.progetto.ProjectGameDescription.getInventory;
 import java.awt.Image;
 import java.util.ArrayList;
@@ -32,6 +31,7 @@ public class Inventory {
     private List<JButton> buttonList = new ArrayList<>();
     private JFrame inventoryform;
     private JLabel background;
+
     public Inventory() {
     }
 
@@ -81,7 +81,7 @@ public class Inventory {
 
     public void refreshInventory() {
         clearInventory(); // pulisce l'inventario prima del reinserimento degli oggetti per evitare duplicati o ritrovarsi con
-                          // oggetti già usati ancora nell'inventario
+        // oggetti già usati ancora nell'inventario
         double rows = Math.ceil((double) Size() / (double) 8);
         if (rows > 1) {                             //Caso con più righe(Ogni riga è composta da 8 caselle)
             for (int i = 0; i < rows - 1; i++) {    //Riempimento prime righe "complete"
@@ -101,7 +101,7 @@ public class Inventory {
     }
 
     public void clearInventory() {
-        for(int i = 0;i<getButtonList().size();i++){
+        for (int i = 0; i < getButtonList().size(); i++) {
             getInventoryform().getContentPane().remove(getButtonList().get(i));
         }
     }

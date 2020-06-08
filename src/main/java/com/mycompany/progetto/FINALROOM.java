@@ -5,17 +5,8 @@
  */
 package com.mycompany.progetto;
 
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import java.io.File;
-import java.net.URL;
-import java.text.Format;
-import javax.print.attribute.standard.Media;
-import javax.swing.*;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.sound.sampled.AudioInputStream;

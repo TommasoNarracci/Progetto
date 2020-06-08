@@ -26,6 +26,7 @@ public class ProjectObject extends JButton {
     private JFrame thisRoom;
     private int enable = 1;    //0 = NO ; 1 = SI
     private int reusable = 0;
+
     public ProjectObject() {
     }
 
@@ -59,7 +60,8 @@ public class ProjectObject extends JButton {
         //this.enable = 1;
         SetObjectImage();
     }
-    public ProjectObject(int id, String objectName, String imagePath, JButton object, JFrame thisRoom,int enable, int reusable) {
+
+    public ProjectObject(int id, String objectName, String imagePath, JButton object, JFrame thisRoom, int enable, int reusable) {
         this.id = id;
         this.objectName = objectName;
         this.imagePath = imagePath;
@@ -70,6 +72,7 @@ public class ProjectObject extends JButton {
         object.addActionListener(actionListener);
         SetObjectImage();
     }
+
     public void setId(int id) {
         this.id = id;
     }
@@ -77,7 +80,6 @@ public class ProjectObject extends JButton {
     public int getId() {
         return id;
     }
-
 
     public int isEnable() {
         return enable;

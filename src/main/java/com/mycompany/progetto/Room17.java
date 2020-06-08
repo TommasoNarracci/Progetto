@@ -10,9 +10,6 @@ import static com.mycompany.progetto.Inventory.*;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.SwingWorker;
 import javax.swing.Timer;
 
@@ -29,9 +26,9 @@ public class Room17 extends javax.swing.JFrame {
 
     public Room17() {
         initComponents();
-        sword = new ProjectObject(1, "sword");
-        anello = new ProjectObject(2, "anello", "/images/paglia.jpg", ring, this);
-        ovest = new ProjectObject(3, "nord", "/images/Ovest.png", west, this, 0, 1);
+        sword = new ProjectObject(6, "sword");
+        anello = new ProjectObject(11, "anello", "/images/paglia.jpg", ring, this);
+        ovest = new ProjectObject(12, "nord", "/images/Ovest.png", west, this, 0, 1);
         this.addWindowListener(l);
     }
     WindowListener l = new WindowListener() {
@@ -94,6 +91,7 @@ public class Room17 extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         text.setBackground(new java.awt.Color(0, 0, 0));
+        text.setFont(new java.awt.Font("Papyrus", 3, 18)); // NOI18N
         text.setForeground(new java.awt.Color(255, 255, 255));
         text.setToolTipText("");
         text.setOpaque(true);
@@ -199,7 +197,7 @@ public class Room17 extends javax.swing.JFrame {
         } else {
             //try {
             text.setText("Non hai la spada");
-            Timer timer = new Timer(2000, event -> {
+            Timer timer = new Timer(3000, event -> {
                 text.setText("");
             });
             timer.setRepeats(false);
@@ -214,11 +212,11 @@ public class Room17 extends javax.swing.JFrame {
         // TODO add your handling code here:
         PickObject(anello);
         text.setText("Questo anello emana un'aura molto opprimente,ma nonostante ciò sei attratto da esso...");
-            Timer timer = new Timer(3000, event -> {
-                text.setText("");
-            });
-            timer.setRepeats(false);
-            timer.start();
+        Timer timer = new Timer(3000, event -> {
+            text.setText("");
+        });
+        timer.setRepeats(false);
+        timer.start();
     }//GEN-LAST:event_ringActionPerformed
 
     private void westActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_westActionPerformed
