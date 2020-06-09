@@ -5,6 +5,40 @@
  */
 package com.mycompany.progetto;
 
+import com.mycompany.progetto.Rooms.Menu;
+import com.mycompany.progetto.Rooms.InventoryForm;
+import com.mycompany.progetto.Rooms.FINALROOM;
+import com.mycompany.progetto.Rooms.Room9;
+import com.mycompany.progetto.Rooms.Room12;
+import com.mycompany.progetto.Rooms.Room25;
+import com.mycompany.progetto.Rooms.Room16;
+import com.mycompany.progetto.Rooms.Room27;
+import com.mycompany.progetto.Rooms.Room26;
+import com.mycompany.progetto.Rooms.Room17;
+import com.mycompany.progetto.Rooms.Room4;
+import com.mycompany.progetto.Rooms.Room23;
+import com.mycompany.progetto.Rooms.Room11;
+import com.mycompany.progetto.Rooms.Room1;
+import com.mycompany.progetto.Rooms.Room24;
+import com.mycompany.progetto.Rooms.Room15;
+import com.mycompany.progetto.Rooms.Room20;
+import com.mycompany.progetto.Rooms.Room14;
+import com.mycompany.progetto.Rooms.Room22;
+import com.mycompany.progetto.Rooms.Room7;
+import com.mycompany.progetto.Rooms.Room8;
+import com.mycompany.progetto.Rooms.Room3;
+import com.mycompany.progetto.Rooms.Room30;
+import com.mycompany.progetto.Rooms.Room28;
+import com.mycompany.progetto.Rooms.Room13;
+import com.mycompany.progetto.Rooms.Room10;
+import com.mycompany.progetto.Rooms.Room6;
+import com.mycompany.progetto.Rooms.Room18;
+import com.mycompany.progetto.Rooms.Room29;
+import com.mycompany.progetto.Rooms.Room2;
+import com.mycompany.progetto.Rooms.Room0;
+import com.mycompany.progetto.Rooms.Room21;
+import com.mycompany.progetto.Rooms.Room19;
+import com.mycompany.progetto.Rooms.Room5;
 import static com.mycompany.progetto.ProjectGameDescription.*;
 import javax.swing.JFrame;
 
@@ -16,7 +50,7 @@ public class Game {
     private static Room room0, room1, room2, room3, room4, room5,
             room6, room7, room8, room9, room10, room11, room12, room13,
             room14, room15, room16, room17, room18, room19, room20, room21, room22, room23,
-            room24, room25, room26, room27, room28, room29, room30,FINALROOM,menu;
+            room24, room25, room26, room27, room28, room29, room30, FINALROOM, menu;
     private ProjectObject sword;
     private static JFrame inventory = new InventoryForm();
 
@@ -25,11 +59,11 @@ public class Game {
         //setThisGame(thisGame);
         getInventory().setInventoryform(inventory);
         menu = new Room(31, new Menu(), "/images/menu.jpg", "menu", new Menu().jLabel1);
-        
+
         room0 = new Room(0, new Room0(), "/images/11.jpg", "casa", new Room0().sfondo);
-        
+
         room1 = new Room(1, new Room1(), "/images/scalinata.jpg", "scalinata", new Room1().background);
-        
+
         room2 = new Room(2, new Room2(), "/images/seminterrato.jpg", "seminterrato", new Room2().jLabel1);
 
         room3 = new Room(3, new Room3(), "/images/hobbiton.jpg", "hobbiton", new Room3().jLabel1);
@@ -70,7 +104,7 @@ public class Game {
 
         room21 = new Room(21, new Room21(), "/images/regnosotto.jpg", "regnosotto", new Room21().jLabel1);
 
-        room22 = new Room(22, new Room22(), "/images/tesoro.jpg","smaug",new Room22().jLabel1);
+        room22 = new Room(22, new Room22(), "/images/tesoro.jpg", "smaug", new Room22().jLabel1);
 
         room23 = new Room(23, new Room23(), "/images/arken.jpg", "arkengemma", new Room23().jLabel1);
 
@@ -87,8 +121,8 @@ public class Game {
         room29 = new Room(29, new Room29(), "/images/filo.jpg", "filo", new Room29().jLabel1);
 
         room30 = new Room(30, new Room30(), "/images/fine.jpg", "sauron", new Room30().jLabel1);
-        
-        FINALROOM = new Room(31,new FINALROOM());
+
+        FINALROOM = new Room(31, new FINALROOM());
         getRooms().add(room0);
         getRooms().add(room1);
         getRooms().add(room2);
