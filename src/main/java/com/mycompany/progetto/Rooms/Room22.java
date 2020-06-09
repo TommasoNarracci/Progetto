@@ -97,7 +97,7 @@ public class Room22 extends javax.swing.JFrame {
         text.setFont(new java.awt.Font("Papyrus", 3, 18)); // NOI18N
         text.setForeground(new java.awt.Color(255, 255, 255));
         text.setOpaque(true);
-        getContentPane().add(text, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 640, 1080, 40));
+        getContentPane().add(text, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 680, 1080, 40));
 
         name.setBackground(new java.awt.Color(0, 0, 0));
         name.setFont(new java.awt.Font("Papyrus", 3, 24)); // NOI18N
@@ -125,7 +125,7 @@ public class Room22 extends javax.swing.JFrame {
                 inventoryActionPerformed(evt);
             }
         });
-        getContentPane().add(inventory, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 540, -1, -1));
+        getContentPane().add(inventory, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 590, -1, -1));
 
         ring.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ring.png"))); // NOI18N
         ring.setBorderPainted(false);

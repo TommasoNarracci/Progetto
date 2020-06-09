@@ -109,7 +109,7 @@ public class Room15 extends javax.swing.JFrame {
         text.setForeground(new java.awt.Color(255, 255, 255));
         text.setOpaque(true);
         text.setPreferredSize(new java.awt.Dimension(1080, 40));
-        getContentPane().add(text, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 650, -1, -1));
+        getContentPane().add(text, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 680, -1, -1));
 
         luogo.setBackground(new java.awt.Color(0, 0, 0));
         luogo.setFont(new java.awt.Font("Papyrus", 3, 24)); // NOI18N
@@ -126,7 +126,7 @@ public class Room15 extends javax.swing.JFrame {
                 inventarioActionPerformed(evt);
             }
         });
-        getContentPane().add(inventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 550, -1, -1));
+        getContentPane().add(inventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 590, -1, -1));
 
         paglia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/paglia.png"))); // NOI18N
         paglia.setBorderPainted(false);

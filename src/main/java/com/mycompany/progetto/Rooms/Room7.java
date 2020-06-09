@@ -36,7 +36,7 @@ public class Room7 extends javax.swing.JFrame {
                 protected Void doInBackground() throws Exception {
                     this.publish("SAM:'Bilbo mi sono rifugiato qui appana ho sentito dei troll...'");
                     Thread.sleep(3000);
-                    this.publish("SAM:'Ho 2 spade con me'");
+                    this.publish("SAM:'Ho una spada con me'");
                     Thread.sleep(3000);
                     this.publish("SAM:'Prendine una,magari ti può tornare utile!'");
                     Thread.sleep(3000);

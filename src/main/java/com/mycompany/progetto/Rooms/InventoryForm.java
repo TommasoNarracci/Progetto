@@ -23,7 +23,7 @@ public class InventoryForm extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setSize(inventoryWindow);
         this.setResizable(false);
-        getInventory().setBackground(jLabel1);
+        getInventory().setBackground(griglia);
     }
 
     /**
@@ -35,14 +35,14 @@ public class InventoryForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        griglia = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/inventory.png"))); // NOI18N
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(-2, -4, 600, 270);
+        griglia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/inventory.png"))); // NOI18N
+        getContentPane().add(griglia);
+        griglia.setBounds(-2, -4, 600, 270);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -83,6 +83,6 @@ public class InventoryForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JLabel jLabel1;
+    public javax.swing.JLabel griglia;
     // End of variables declaration//GEN-END:variables
 }
